@@ -19,9 +19,10 @@ config = {
         }
     },   
     "USERS":[{ username: 'herbert.lima', userid: 14124177 }],
-    "USERS_INVALID":[{ username_invalid: 'XXX', userid_invalid: 00000000 }],               
+    "USERS_INVALID":[{ username_invalid: 'XXX', userid_invalid: 'XXX' }],  
+    "MESSAGE_INVALID": 'An error has occurred.',            
     "CAMPAIGN_ID": 30207,
-    "CAMPAIGN_ID_INVALID": 30207,
+    "CAMPAIGN_ID_INVALID": 'XXX',
     "util": {
         "HTTP": {
             "OK": 200,
