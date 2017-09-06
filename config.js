@@ -23,6 +23,10 @@ config = {
     "MESSAGE_INVALID": 'An error has occurred.',            
     "CAMPAIGN_ID": 30207,
     "CAMPAIGN_ID_INVALID": 'XXX',
+    "REDEMPTIONS": '92A49D86-18A6-4C03-9A6C-E22051583964',
+    "DATETOEXPIRE": '2017-12-31',
+    "INVALIDDATETOEXPIRE": '0000-00-00',
+    "INVALIDFORMATDATETOEXPIRE": '2017-13-32',
     "util": {
         "HTTP": {
             "OK": 200,

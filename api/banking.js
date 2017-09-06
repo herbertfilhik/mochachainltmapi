@@ -50,7 +50,45 @@ describe('Testes na Api do Banking', function() {
         });
      });
 
+     //API Redemptions
+     it('Deve obter informações sobre os resgates realizados', function() {
+        var banking = new BankingService(this);       
+        return banking.getRedemptions(config.REDEMPTIONS).then(function(response){
+             expect(response).to.have.status(config.util.HTTP.OK);                                       
+        }).catch(function(responseerr) {
+            expect(responseerr, 'Deve obter informações sobre os resgates realizados').to.have.status(config.util.HTTP.OK);
+        });
+     });     
+
+     //API Transaction To Expire
+     it('Deve obter informações sobre as transações a expirar', function() {
+        var banking = new BankingService(this);       
+        return banking.getTransToExpire(config.CAMPAIGN_ID,config.USERS[0].userid,config.DATETOEXPIRE).then(function(response){
+             expect(response).to.have.status(config.util.HTTP.OK);                                       
+        }).catch(function(responseerr) {
+            expect(responseerr, 'Deve obter informações sobre as transações a expirar').to.have.status(config.util.HTTP.OK);
+        });
+     }); 
      
+     //API Transaction To Expire com data inválida (0000-00-00)
+     it('Deve impedir a obtenção de informações sobre as transações a expirar (0000-00-00)', function() {
+        var banking = new BankingService(this);       
+        return banking.getTransToExpireDateInvalid(config.CAMPAIGN_ID,config.USERS[0].userid,config.INVALIDDATETOEXPIRE).then(function(response){
+             expect(response).to.have.status(config.util.HTTP.BAD_REQUEST);                                       
+        }).catch(function(responseerr) {
+            expect(responseerr, 'Deve impedir a obtenção de informações sobre as transações a expirar (0000-00-00)').to.have.status(config.util.HTTP.BAD_REQUEST);
+        });
+     }); 
+
+     //API Transaction To Expire com data inválida (2017-13-32)
+     it('Deve impedir a obtenção de informações sobre as transações a expirar (2017-13-32)', function() {
+        var banking = new BankingService(this);       
+        return banking.getTransToExpireDateInvalidFormat(config.CAMPAIGN_ID,config.USERS[0].userid,config.INVALIDFORMATDATETOEXPIRE).then(function(response){
+             expect(response).to.have.status(config.util.HTTP.BAD_REQUEST);                                       
+        }).catch(function(responseerr) {
+            expect(responseerr, 'Deve impedir a obtenção de informações sobre as transações a expirar (2017-13-32)').to.have.status(config.util.HTTP.BAD_REQUEST);
+        });
+     });     
 
 });
    
