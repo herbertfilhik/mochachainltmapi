@@ -100,4 +100,25 @@ describe('Testes na Api do Banking', function() {
         });
      });     
 
+     //API Get Parameter Value
+     it('Deve retornar 200 para a api Get Parameter Value', function() {
+        var banking = new BankingService(this);       
+        return banking.getParameterValue(config.CAMPAIGN_ID).then(function(response){
+             expect(response).to.have.status(config.util.HTTP.OK);                                       
+        }).catch(function(responseerr) {
+            expect(responseerr, 'Deve retornar 200 para a api Get Parameter Value').to.have.status(config.util.HTTP.OK);
+        });
+     });
+
+     //API CashReversal
+     it('Deve retornar 200 para a api CashReversal', function() {
+        var banking = new BankingService(this);       
+        return banking.getCashReversal(config.CASHREVERSAL).then(function(response){
+             expect(response).to.have.status(config.util.HTTP.OK);                                       
+        }).catch(function(responseerr) {
+            expect(responseerr, 'Deve retornar 200 para a api CashReversal').to.have.status(config.util.HTTP.OK);
+        });
+     });
+
+
 }); 

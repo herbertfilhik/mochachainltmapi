@@ -29,6 +29,7 @@ config = {
     "INVALIDFORMATDATETOEXPIRE": '2017-13-32',
     "DATEFROM": '2017-01-01',
     "DATETO": '2017-12-31',
+    "CASHREVERSAL": '999999',
     "util": {
         "HTTP": {
             "OK": 200,

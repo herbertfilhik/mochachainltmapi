@@ -73,7 +73,6 @@ BankingService.prototype.getTransToExpireDateInvalidFormat = function(campaignid
     return this.util.getUrl(baseurl, header,'/account'+'/campaigns/'+campaignid+'/participants/'+userid+'/toExpire/'+invalidformatdatetoexpire);
 };
 
-
 //https://hml-banking-api.webpremios.com.br:443/v1/account/campaigns/30207/participants/14124177/accountStatement/from/2017-01-01/to/2017-12-31
 BankingService.prototype.getAccountStatement = function(campaignid, userid, datefrom, dateto) {
     this.util.timeout(config.util.DEFAULT_SECONDS);
@@ -82,6 +81,21 @@ BankingService.prototype.getAccountStatement = function(campaignid, userid, date
     return this.util.getUrl(baseurl, header,'/account'+'/campaigns/'+campaignid+'/participants/'+userid+'/accountStatement'+'/from/'+datefrom+'/to/'+dateto);
 };
 
+//https://hml-banking-api.webpremios.com.br:443/v1/configurations/campaigns/30207/parameters/StampedBalanceAllowed
+BankingService.prototype.getParameterValue = function(campaignid) {
+    this.util.timeout(config.util.DEFAULT_SECONDS);
+    var baseurl = this.urlService.getFullUrlPrincipalApi();
+    var header = this.util.getHeaderJson('');    
+    return this.util.getUrl(baseurl, header,'/configurations'+'/campaigns/'+campaignid+'/parameters'+'/StampedBalanceAllowed');
+};
+
+//https://hml-banking-api.webpremios.com.br:443/v1/redemptions/isCashReversible/999999
+BankingService.prototype.getCashReversal = function(cashreversal) {
+    this.util.timeout(config.util.DEFAULT_SECONDS);
+    var baseurl = this.urlService.getFullUrlPrincipalApi();
+    var header = this.util.getHeaderJson('');    
+    return this.util.getUrl(baseurl, header,'/redemptions'+'/isCashReversible/'+cashreversal);
+};
 
 module.exports = BankingService;
 
