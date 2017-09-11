@@ -17,7 +17,10 @@ config = {
         "prd" : {
           "urlBanking": "https://banking-api.webpremios.com.br/v1"
         }
-    },   
+    },
+    
+    "REDEMPTIONSTATUSDESCRIPTION": "Declined",
+
     "USERS":[{ username: 'herbert.lima', userid: 14124177 }],
     "USERS_INVALID":[{ username_invalid: 'XXX', userid_invalid: 'XXX' }],  
     "MESSAGE_INVALID": 'An error has occurred.',            
@@ -61,8 +64,7 @@ config = {
                 "Content-Type": "application/json"               
             }
         }
-    }
+    }    
 };
-
 
 module.exports = config;

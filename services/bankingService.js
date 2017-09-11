@@ -97,6 +97,12 @@ BankingService.prototype.getCashReversal = function(cashreversal) {
     return this.util.getUrl(baseurl, header,'/redemptions'+'/isCashReversible/'+cashreversal);
 };
 
+//https://hml-banking-api.webpremios.com.br:443/v1/redemptions
+BankingService.prototype.postredemption = function(redemption) {
+    this.util.timeout(config.util.DEFAULT_SECONDS);
+    var baseurl = this.urlService.getFullUrlPrincipalApi();
+    var header = this.util.getHeaderJson('');    
+    return this.util.postUrl(baseurl, redemption, header,'/redemptions');
+};
+
 module.exports = BankingService;
-
-
