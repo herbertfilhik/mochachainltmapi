@@ -27,6 +27,8 @@ config = {
     "DATETOEXPIRE": '2017-12-31',
     "INVALIDDATETOEXPIRE": '0000-00-00',
     "INVALIDFORMATDATETOEXPIRE": '2017-13-32',
+    "DATEFROM": '2017-01-01',
+    "DATETO": '2017-12-31',
     "util": {
         "HTTP": {
             "OK": 200,

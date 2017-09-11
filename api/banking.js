@@ -58,7 +58,7 @@ describe('Testes na Api do Banking', function() {
         }).catch(function(responseerr) {
             expect(responseerr, 'Deve obter informações sobre os resgates realizados').to.have.status(config.util.HTTP.OK);
         });
-     });     
+     });
 
      //API Transaction To Expire
      it('Deve obter informações sobre as transações a expirar', function() {
@@ -89,6 +89,15 @@ describe('Testes na Api do Banking', function() {
             expect(responseerr, 'Deve impedir a obtenção de informações sobre as transações a expirar (2017-13-32)').to.have.status(config.util.HTTP.BAD_REQUEST);
         });
      });     
+    
+     //API Account Statement
+     it('Deve retornar 404 para a api Account Statement', function() {
+        var banking = new BankingService(this);       
+        return banking.getAccountStatement(config.CAMPAIGN_ID,config.USERS[0].userid,config.DATEFROM,config.DATETO).then(function(response){
+             expect(response).to.have.status(config.util.HTTP.NOT_FOUND);                                       
+        }).catch(function(responseerr) {
+            expect(responseerr, 'Deve retornar 404 para a api Account Statement').to.have.status(config.util.HTTP.NOT_FOUND);
+        });
+     });     
 
-});
-   
+}); 
