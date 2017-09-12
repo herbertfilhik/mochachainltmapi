@@ -208,7 +208,7 @@ describe('Testes na Api do Banking', function() {
         
     });
 
-    it('Deve finalizar o resgate com sucesso', function() {
+    xit('Deve finalizar o resgate com sucesso', function() {
         var banking = new BankingService(this);
         //Valida o Balanço do Participante
         return banking.getBalance(config.CAMPAIGN_ID,config.USERS[0].userid).then(function(response){
