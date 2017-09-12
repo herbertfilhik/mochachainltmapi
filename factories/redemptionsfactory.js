@@ -48,28 +48,28 @@ Redemptionfactory.prototype.build = function()
                 orderId: null,
                 vendorId: null,
                 conversionRate: null,
-                vendorOrderI: null,
+                vendorOrderId: null,
                 amount: null,
                 shippingValue: null,
                 shippingTypeId: null,
                 orderType: null,
                 redemptionStatus: null,
                 descriptionRedeem: null,
-                attributes: [
+                attributes: 
                   {
                     key: null,
                     value: null
                   }
-                ],
-                items: [
+                ,
+                items: 
                   {
                     itemType: null,
                     code: null,
                     value: null,
                     quantity: null
                   }
-                ],
-                products: [
+                ,
+                products: 
                   {
                     id: null,
                     name: null,
@@ -81,14 +81,14 @@ Redemptionfactory.prototype.build = function()
                     partnerId: null,
                     partnerTypeId: null,
                     parameters: null,
-                    configuration: [
+                    configuration: 
                       {
                         key: null,
                         value: null
-                      }
-                    ]
+                      },
+                    
                   }
-                ],
+                ,
                 currentConversionRate: null,
                 orderAmount: null,
                 orderPoints: null,
@@ -115,19 +115,19 @@ Redemptionfactory.prototype.build = function()
               state: null,
               number: null,
               complement: null,
-              emails: [
+              emails: 
                 {
                   emailType: null,
                   emailAddress: null
                 }
-              ],
-              phones: [
+              ,
+              phones: 
                 {
                   phoneType: null,
                   ddd: null,
                   phoneNumber: null
                 }
-              ],
+              ,
               updateDate: null,
               insertDate: null
             },
@@ -150,19 +150,19 @@ Redemptionfactory.prototype.build = function()
               state: null,
               number: null,
               complement: null,
-              emails: [
+              emails: 
                 {
                   emailType: null,
                   emailAddress: null
                 }
-              ],
-              phones: [
+              ,
+              phones: 
                 {
                   phoneType: null,
                   ddd: null,
                   phoneNumber: null
                 }
-              ],
+              ,
               updateDate: null,
               insertDate: null
             },
@@ -195,118 +195,118 @@ Redemptionfactory.prototype.buildDefault = function(){
     redemption.shippingTypeId= "1";
     redemption.payments[0].campaignConversionRate= "0";
     redemption.payments[0].paymentType= "1";
-    redemption.total= "10.00";
-    redemption.cardNumber= "0000000000000001";
-    redemption.cardHolder= "Teste Teste";
-    redemption.cardHolderCPF= "219.969.318-06";
-    redemption.cardExpirationMonthDate= "01";
-    redemption.cardExpirationYearDate= "2020";
-    redemption.numberOfPayments= "12";
-    redemption.securityCode= "123";
-    redemption.catalogId= "2";
-    redemption.ignoreApportionment= "true";
-    redemption.cardExpirationDate= "2017-09-11T14=25=41.139Z";
-    redemption.paymentMethod= "6";
-    redemption.brokerId= "997";
-    redemption.transactionType= "1";
-    redemption.paymentPlanId= "0";
-    redemption.taxType= "1";
-    redemption.description= "teste";
-    redemption.amount= "10.00";
-    redemption.isPercentage= "true";
-    redemption.isExternalCash= "true";
-    redemption.campaignConversionRate= "1";
-    redemption.orderId= "3001";
-    redemption.vendorId= "1";
-    redemption.conversionRate= "1";
-    redemption.vendorOrderId= "1";
-    redemption.amount= "10.00";
-    redemption.shippingValue= "0.00";
-    redemption.shippingTypeId= "1";
-    redemption.orderType= "1";
-    redemption.redemptionStatus= "1";
-    redemption.descriptionRedeem= "teste";
-    redemption.key= "teste";
-    redemption.value= "1"
-    redemption.itemType= "1";
-    redemption.code= "teste123";
-    redemption.value= "10.00";
-    redemption.quantity= "1";
-    redemption.id= "123";
-    redemption.name= "teste";
-    redemption.category= "teste";
-    redemption.partnerName= "teste";
-    redemption.estimatedDeliveryDate= "2017-09-11T14=25=41.139Z";
-    redemption.unitPrice= "10.00";
-    redemption.quantity= "1";
-    redemption.partnerId= "teste";
-    redemption.partnerTypeId= "1";
-    redemption.parameters= "teste";
-    redemption.key= "teste";
-    redemption.value= "teste"
-    redemption.currentConversionRate= "1";
-    redemption.orderAmount= "10.00";
-    redemption.orderPoints= "100";
-    redemption.shippingPoints= "100";
-    redemption.catalogId= "2";
-    redemption.name= "Herbert Lima";
-    redemption.login= "herbert.lima";
-    redemption.cnpj= "47645472000165";
-    redemption.cpf= "31022743821";
-    redemption.rg= "408231117";
-    redemption.companyName= "teste";
-    redemption.expeditionDate= "2017-09-11T14=25=41.139Z";
-    redemption.issuing= "SSP";
-    redemption.stateIssuing= "SP";
-    redemption.bornDate= "2017-09-11T14=25=41.139Z";
-    redemption.genderTypeId= "M";
-    redemption.zipCode= "123";
-    redemption.street= "123";
-    redemption.neighborhood= "123";
-    redemption.city= "Barueri";
-    redemption.state= "SP";
-    redemption.number= "580";
-    redemption.complement= "teste";
-    redemption.emailType= "1";
-    redemption.emailAddress= "string";
-    redemption.phoneType= "1";
-    redemption.ddd= "string";
-    redemption.phoneNumber= "string";
-    redemption.updateDate= "2017-09-11T14=25=41.140Z";
-    redemption.insertDate= "2017-09-11T14=25=41.140Z";
-    redemption.name= "string";
-    redemption.login= "string";
-    redemption.cnpj= "string";
-    redemption.cpf= "string";
-    redemption.rg= "string";
-    redemption.companyName= "string";
-    redemption.expeditionDate= "2017-09-11T14=25=41.140Z";
-    redemption.issuing= "string";
-    redemption.stateIssuing= "string";
-    redemption.bornDate= "2017-09-11T14=25=41.140Z";
-    redemption.genderTypeId= "string";
-    redemption.zipCode= "string";
-    redemption.street= "string";
-    redemption.neighborhood= "string";
-    redemption.city= "string";
-    redemption.state= "string";
-    redemption.number= "string";
-    redemption.complement= "string";
-    redemption.emailType= "1";
-    redemption.emailAddress= "herbert.lima@ltm.digital";
-    redemption.phoneType= "1";
-    redemption.ddd= "11";
-    redemption.phoneNumber= "22223333";
-    redemption.updateDate= "2017-09-11T14=25=41.140Z";
-    redemption.insertDate= "2017-09-11T14=25=41.140Z";
-    redemption.validationCode= "teste";
-    redemption.authenticationType= "1";
-    redemption.isResend= "true";
-    redemption.applicationId= "1";
-    redemption.ip= "127.0.0.1";
-    redemption.serverIP= "127.0.0.1";
-    redemption.serverName= "LTM";
-    redemption.browser= "Chrome";
+    redemption.payments[0].total= "10.00";
+    redemption.payments[0].cardNumber= "0000000000000001";
+    redemption.payments[0].cardHolder= "Teste Teste";
+    redemption.payments[0].cardHolderCPF= "219.969.318-06";
+    redemption.payments[0].cardExpirationMonthDate= "01";
+    redemption.payments[0].cardExpirationYearDate= "2020";
+    redemption.payments[0].numberOfPayments= "12";
+    redemption.payments[0].securityCode= "123";
+    redemption.payments[0].catalogId= "2";
+    redemption.payments[0].ignoreApportionment= "true";
+    redemption.payments[0].cardExpirationDate= "2017-09-11T14=25=41.139Z";
+    redemption.payments[0].paymentMethod= "6";
+    redemption.payments[0].brokerId= "997";
+    redemption.payments[0].transactionType= "1";
+    redemption.payments[0].paymentPlanId= "0";
+    redemption.payments[0].taxes[0].taxType= "1";
+    redemption.payments[0].taxes[0].description= "teste";
+    redemption.payments[0].taxes[0].amount= "10.00";
+    redemption.payments[0].taxes[0].isPercentage= "true";
+    redemption.payments[0].isExternalCash= "true";
+    redemption.orders[0].campaignConversionRate= "1";
+    redemption.orders[0].orderId= "3001";
+    redemption.orders[0].vendorId= "1";
+    redemption.orders[0].conversionRate= "1";
+    redemption.orders[0].vendorOrderId= "1";
+    redemption.orders[0].amount= "10.00";
+    redemption.orders[0].shippingValue= "0.00";
+    redemption.orders[0].shippingTypeId= "1";
+    redemption.orders[0].orderType= "1";
+    redemption.orders[0].redemptionStatus= "1";
+    redemption.orders[0].descriptionRedeem= "teste";
+    redemption.orders[0].attributes.key= "teste";
+    redemption.orders[0].attributes.value= "1"
+    redemption.orders[0].items.itemType= "1";
+    redemption.orders[0].items.code= "teste123";
+    redemption.orders[0].items.value= "10.00";
+    redemption.orders[0].items.quantity= "1";
+    redemption.orders[0].products.id= "123";
+    redemption.orders[0].products.name= "teste";
+    redemption.orders[0].products.category= "teste";
+    redemption.orders[0].products.partnerName= "teste";
+    redemption.orders[0].products.estimatedDeliveryDate= "2017-09-11T14=25=41.139Z";
+    redemption.orders[0].products.unitPrice= "10.00";
+    redemption.orders[0].products.quantity= "1";
+    redemption.orders[0].products.partnerId= "teste";
+    redemption.orders[0].products.partnerTypeId= "1";
+    redemption.orders[0].products.parameters= "teste";
+    redemption.orders[0].products.configuration.key= "teste";
+    redemption.orders[0].products.configuration.value= "teste";
+    redemption.orders[0].currentConversionRate= "1";
+    redemption.orders[0].orderAmount= "10.00";
+    redemption.orders[0].orderPoints= "100";
+    redemption.orders[0].shippingPoints= "100";
+    redemption.participant.catalogId= "2";
+    redemption.participant.name= "Herbert Lima";
+    redemption.participant.login= "herbert.lima";
+    redemption.participant.cnpj= "47645472000165";
+    redemption.participant.cpf= "31022743821";
+    redemption.participant.rg= "408231117";
+    redemption.participant.companyName= "teste";
+    redemption.participant.expeditionDate= "2017-09-11T14=25=41.139Z";
+    redemption.participant.issuing= "SSP";
+    redemption.participant.stateIssuing= "SP";
+    redemption.participant.bornDate= "2017-09-11T14=25=41.139Z";
+    redemption.participant.genderTypeId= "M";
+    redemption.participant.zipCode= "123";
+    redemption.participant.street= "123";
+    redemption.participant.neighborhood= "123";
+    redemption.participant.city= "Barueri";
+    redemption.participant.state= "SP";
+    redemption.participant.number= "580";
+    redemption.participant.complement= "teste";
+    redemption.participant.emails.emailType= "1";
+    redemption.participant.emails.emailAddress= "teste";
+    redemption.participant.phones.phoneType= "1";
+    redemption.participant.phones.ddd= "teste";
+    redemption.participant.phones.phoneNumber= "teste";
+    redemption.participant.updateDate= "2017-09-11T14=25=41.140Z";
+    redemption.participant.insertDate= "2017-09-11T14=25=41.140Z";
+    redemption.orderShipping.name= "teste";
+    redemption.orderShipping.login= "teste";
+    redemption.orderShipping.cnpj= "teste";
+    redemption.orderShipping.cpf= "teste";
+    redemption.orderShipping.rg= "teste";
+    redemption.orderShipping.companyName= "teste";
+    redemption.orderShipping.expeditionDate= "2017-09-11T14=25=41.140Z";
+    redemption.orderShipping.issuing= "teste";
+    redemption.orderShipping.stateIssuing= "teste";
+    redemption.orderShipping.bornDate= "2017-09-11T14=25=41.140Z";
+    redemption.orderShipping.genderTypeId= "teste";
+    redemption.orderShipping.zipCode= "teste";
+    redemption.orderShipping.street= "teste";
+    redemption.orderShipping.neighborhood= "teste";
+    redemption.orderShipping.city= "teste";
+    redemption.orderShipping.state= "teste";
+    redemption.orderShipping.number= "teste";
+    redemption.orderShipping.complement= "teste";
+    redemption.orderShipping.emails.emailType= "1";
+    redemption.orderShipping.emails.emailAddress= "herbert.lima@ltm.digital";
+    redemption.orderShipping.phones.phoneType= "1";
+    redemption.orderShipping.phones.ddd= "11";
+    redemption.orderShipping.phones.phoneNumber= "22223333";
+    redemption.orderShipping.updateDate= "2017-09-11T14=25=41.140Z";
+    redemption.orderShipping.insertDate= "2017-09-11T14=25=41.140Z";
+    redemption.authentication.validationCode= "teste";
+    redemption.authentication.authenticationType= "1";
+    redemption.authentication.isResend= "true";
+    redemption.application.applicationId= "1";
+    redemption.application.ip= "127.0.0.1";
+    redemption.application.serverIP= "127.0.0.1";
+    redemption.application.serverName= "LTM";
+    redemption.application.browser= "Chrome";
     redemption.isDecimalCash= "true";
 
     return redemption;

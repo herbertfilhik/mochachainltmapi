@@ -105,4 +105,20 @@ BankingService.prototype.postredemption = function(redemption) {
     return this.util.postUrl(baseurl, redemption, header,'/redemptions');
 };
 
+//https://hml-banking-api.webpremios.com.br:443/v1/redemptions/finishRedemption
+BankingService.prototype.putredemption = function(finishredemption) {
+    this.util.timeout(config.util.DEFAULT_SECONDS);
+    var baseurl = this.urlService.getFullUrlPrincipalApi();
+    var header = this.util.getHeaderJson('');    
+    return this.util.putUrl(baseurl, finishredemption, header,'/redemptions'+'/finishRedemption');
+};
+
+//https://hml-banking-api.webpremios.com.br:443/v1/redemptions/reversal
+BankingService.prototype.reversalredemption = function(reversalredemption) {
+    this.util.timeout(config.util.DEFAULT_SECONDS);
+    var baseurl = this.urlService.getFullUrlPrincipalApi();
+    var header = this.util.getHeaderJson('');    
+    return this.util.putUrl(baseurl, reversalredemption, header,'/redemptions'+'/reversal');
+};
+
 module.exports = BankingService;
