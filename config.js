@@ -18,6 +18,56 @@ config = {
           "urlBanking": "https://banking-api.webpremios.com.br/v1"
         }
     },
+
+    "BALANCEACCOUNT":[
+        {
+            loyaltyBalanceCampaign: [
+                {
+                    projectId: 30207,
+                    projectName: "Marketplace Fase 1 PILOTO",
+                    balance: "93499",
+                    currencyBalance: "934.99",
+                    conversionRate: "100",
+                    accountType: "1",
+                    accountTypeId: "1",
+                    accountHolderId: 2022853631,
+                    accountId: 12996939,
+                    vendorId: null,
+                    vendorName: null,
+                    originAccountHolderId: "0"
+                }
+            ],
+            loyaltyStampedBalanceCampaign: [],
+            loyaltyOnHoldBalanceCampaign: [],
+            projectId: 30207,
+            balanceCampaigns: "93499",
+            stampedBalanceCampaigns: "0",
+            totalBalanceCampaigns: "93499",
+            currencyBalanceCampaigns: "934.99",
+            currencyStampedBalanceCampaigns: "0",
+            totalCurrencyBalanceCampaigns: "934.99",
+            onHoldBalanceCampaigns: "0",
+            currencyOnHoldBalanceCampaigns: "0",
+            stampedBalanceAllowed: false
+        }
+    ],
+
+    "EXTRACTACCOUNT":[
+        {
+            insertDate: "2017-09-05T14:12:47.157",
+            accountHolderId: 2022853631,
+            creditBalance: 100000,
+            creditCurrencyBalance: 1000,
+            debitBalance: 0,
+            debitCurrencyBalance: 0,
+            redeemBalance: 6501,
+            redeemCurrencyBalance: 65.01,
+            expiredBalance: 0,
+            expiredCurrencyBalance: 0,
+            lockedBalance: 0,
+            lockedCurrencyBalance: 0
+        }
+    ],
     
     "REDEMPTIONSTATUSDESCRIPTION": "Declined",
 
@@ -61,7 +111,7 @@ config = {
         "DEFAULT_HEADER": { 
             "headers": { 
                 "Accept": "application/json",
-                "Content-Type": "application/json"               
+                "Content-Type": "application/json; charset=utf-8"               
             }
         }
     }    

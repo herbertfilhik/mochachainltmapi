@@ -31,7 +31,7 @@ Util.prototype.getUrls = function() {
 Util.prototype.getHeaderJson = function(token) {
     var header = this.getDefaultHeader(token);
     
-    header[config.util.CONTENT_TYPE] = config.util.ContentType.JSON;
+    //header[config.util.CONTENT_TYPE] = config.util.ContentType.JSON;
 
     return header;
 };

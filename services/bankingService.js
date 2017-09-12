@@ -121,4 +121,23 @@ BankingService.prototype.reversalredemption = function(reversalredemption) {
     return this.util.putUrl(baseurl, reversalredemption, header,'/redemptions'+'/reversal');
 };
 
+//https://hml-banking-api.webpremios.com.br:443/v1/redemptions/releasePoints/30207/3629883
+BankingService.prototype.releasepoints = function(releasepoints, campaignid, userid) {
+    this.util.timeout(config.util.DEFAULT_SECONDS);
+    var baseurl = this.urlService.getFullUrlPrincipalApi();
+    var header = this.util.getHeaderJson('');     
+    
+    console.log(header);
+    return this.util.putUrl(baseurl, releasepoints, header,'/redemptions/releasePoints/'+campaignid+'/'+userid);
+};
+
+//https://hml-banking-api.webpremios.com.br:443/v1/account/campaigns/30207/participants/14124177/extract
+BankingService.prototype.getExtract = function(campaignid, userid) {
+    this.util.timeout(config.util.DEFAULT_SECONDS);
+    var baseurl = this.urlService.getFullUrlPrincipalApi();
+    var header = this.util.getHeaderJson('');    
+    return this.util.getUrl(baseurl, header,'/account/campaigns/'+campaignid+'/participants/'+userid+'/extract');
+};
+
+
 module.exports = BankingService;
