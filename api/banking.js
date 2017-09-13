@@ -5,7 +5,7 @@ var BankingService = require('../services/bankingService.js');
 var Redemptionsfactory = require('../factories/Redemptionsfactory.js');
 var FinishRedemptionfactory = require('../factories/FinishRedemptionfactory.js');
 var ReversalRedemptionfactory = require('../factories/ReversalRedemptionfactory.js');
-//var ReleasePointsfactory = require('../factories/ReleasePointsfactory.js');
+var Creditfactory = require('../factories/Creditfactory.js');
 var expect = chai.expect;
 
 describe('Testes na Api do Banking', function() {
@@ -142,7 +142,7 @@ describe('Testes na Api do Banking', function() {
 
         console.log(redemption);
 
-        return banking.postredemption().then(function(response){
+        return banking.postredemption(redemption).then(function(response){
             expect(response).to.have.status(config.util.HTTP.NOT_FOUND);                                       
         }).catch(function(responseerr) {
             expect(responseerr, 'Deve retornar 404 para a Redemption').to.have.status(config.util.HTTP.NOT_FOUND);
@@ -160,7 +160,7 @@ describe('Testes na Api do Banking', function() {
 
         console.log(finishredemption);
 
-        return banking.putredemption().then(function(response){
+        return banking.putredemption(finishredemption).then(function(response){
             expect(response).to.have.status(config.util.HTTP.NOT_FOUND);                                       
         }).catch(function(responseerr) {
             expect(responseerr, 'Deve retornar 404 para a FinishRedemption').to.have.status(config.util.HTTP.NOT_FOUND);
@@ -178,7 +178,7 @@ describe('Testes na Api do Banking', function() {
 
         console.log(reversalredemption);
 
-        return banking.reversalredemption().then(function(response){
+        return banking.reversalredemption(reversalredemption).then(function(response){
             expect(response).to.have.status(config.util.HTTP.NOT_FOUND);                                       
         }).catch(function(responseerr) {
             expect(responseerr, 'Deve retornar 404 para a Reversal Redemption').to.have.status(config.util.HTTP.NOT_FOUND);
@@ -208,8 +208,11 @@ describe('Testes na Api do Banking', function() {
         
     });
 
-    xit('Deve finalizar o resgate com sucesso', function() {
+    it('Deve finalizar o resgate com sucesso', function() {
         var banking = new BankingService(this);
+        var creditfactory  = new Creditfactory(this);
+        var credit =  creditfactory.buildDefault();    
+
         //Valida o Balanço do Participante
         return banking.getBalance(config.CAMPAIGN_ID,config.USERS[0].userid).then(function(response){
             expect(response).to.have.status(config.util.HTTP.OK);
@@ -219,14 +222,23 @@ describe('Testes na Api do Banking', function() {
             expect(response.body.loyaltyBalanceCampaign[0].accountHolderId).to.equal(config.BALANCEACCOUNT[0].loyaltyBalanceCampaign[0].accountHolderId);
             expect(response.body.loyaltyBalanceCampaign[0].accountId).to.equal(config.BALANCEACCOUNT[0].loyaltyBalanceCampaign[0].accountId);
             expect(response.body.projectId).to.equal(config.BALANCEACCOUNT[0].projectId);
-        
+      
             //Valida o extrato do participante
             return banking.getExtract(config.CAMPAIGN_ID,config.USERS[0].userid).then(function(response){
                 expect(response).to.have.status(config.util.HTTP.OK);
                 expect(response.body.accountHolderId).to.equal(config.EXTRACTACCOUNT[0].accountHolderId);
+                //console.log(credit);
+
+                //Credita accountHolderId
+                return banking.postCredit(credit).then(function(response){
+                    expect(response).to.have.status(config.util.HTTP.OK);                    
+                    expect(response.body).to.equal(true);                    
+                    console.log(response);                                       
+                }).catch(function(responseerr) {
+                    //console.log(responseerr);
+                    expect(responseerr, 'Deve Creditar accountHolderId').to.have.status(config.util.HTTP.OK);
+                });
             })        
         })
-
-
     });
 });     

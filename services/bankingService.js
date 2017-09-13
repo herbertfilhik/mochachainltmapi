@@ -139,5 +139,12 @@ BankingService.prototype.getExtract = function(campaignid, userid) {
     return this.util.getUrl(baseurl, header,'/account/campaigns/'+campaignid+'/participants/'+userid+'/extract');
 };
 
+//https://hml-banking-api.webpremios.com.br:443/v1/account/client/credit
+BankingService.prototype.postCredit = function(credit) {
+    this.util.timeout(config.util.DEFAULT_SECONDS);
+    var baseurl = this.urlService.getFullUrlPrincipalApi();
+    var header = this.util.getHeaderJson('');
+    return this.util.postUrl(baseurl, credit, header,'/account/client/credit');
+};
 
 module.exports = BankingService;
