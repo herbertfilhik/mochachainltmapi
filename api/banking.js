@@ -259,7 +259,7 @@ describe('Testes na Api do Banking', function() {
                             //Validar a realização de Resgate
                             return banking.postredemptiondone(redemptiondone).then(function(responseredemptiondone){
                                 expect(responseredemptiondone).to.have.status(config.util.HTTP.OK);
-                                console.log(responseredemptiondone);
+                                //console.log(responseredemptiondone);
                                 expect(responseredemptiondone.body.approved).to.equal(config.REDEMPTIONDONE[0].approved);    
                                 
 

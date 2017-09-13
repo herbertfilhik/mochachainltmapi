@@ -87,7 +87,7 @@ config = {
 
     "REDEMPTIONDONE":[
         {
-            "approved": "true",
+            "approved": true,
             "channel": 1,
             "authorizationCode": "d54bc2d6-8d88-41fe-a93e-070d0ab7a53e",
             "status": 1,

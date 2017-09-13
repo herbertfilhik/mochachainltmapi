@@ -166,7 +166,6 @@ RedemptionDonefactory.prototype.build = function()
           browser: null
         },
         isDecimalCash: null
-
         
     };
 
@@ -176,120 +175,164 @@ RedemptionDonefactory.prototype.build = function()
 RedemptionDonefactory.prototype.buildDefault = function(){
     var redemptiondone = this.build();
 
-    redemptiondone.parentOrderId= "3734804";
+    redemptiondone.parentOrderId= 3734804;
     redemptiondone.participantId= "14124177";
-    redemptiondone.conversionRate= "100redemptiondone.0";
+    redemptiondone.conversionRate= 100.0;
     redemptiondone.campaignId= "30207";
-    redemptiondone.shippingTypeId= "1";
-    redemptiondone.campaignConversionRate= "0";
-    redemptiondone.paymentType= "2";
-    redemptiondone.total= "11";
-    redemptiondone.cardNumber= "null";
-    redemptiondone.cardHolder= "null";
-    redemptiondone.cardHolderCPF= "null";
-    redemptiondone.cardExpirationMonthDate= "null";
-    redemptiondone.cardExpirationYearDate= "null";
-    redemptiondone.numberOfPayments= "0";
-    redemptiondone.securityCode= "null";
-    redemptiondone.catalogId= "0";
-    redemptiondone.ignoreApportionment= "true";
-    redemptiondone.cardExpirationDate= "2017-09-12T19=16=14redemptiondone.883Z";
-    redemptiondone.paymentMethod= "6";
-    redemptiondone.brokerId= "null";
-    redemptiondone.transactionType= "0";
-    redemptiondone.paymentPlanId= "0";
-    redemptiondone.isExternalCash= "true";
-    redemptiondone.campaignConversionRate= "0";
-    redemptiondone.orderId= "3889907";
-    redemptiondone.vendorId= "60";
-    redemptiondone.conversionRate= "100redemptiondone.0";
-    redemptiondone.vendorOrderId= "string";
-    redemptiondone.amount= "11redemptiondone.0";
-    redemptiondone.shippingValue= "0redemptiondone.0";
-    redemptiondone.shippingTypeId= "1";
-    redemptiondone.orderType= "1";
-    redemptiondone.redemptionStatus= "1";
-    redemptiondone.descriptionRedeem= "teste";
-    redemptiondone.itemType= "1";
-    redemptiondone.code= "teste";
-    redemptiondone.value= "0";
-    redemptiondone.quantity= "0";
-    redemptiondone.id= "3410c151e6ca4167a670";
-    redemptiondone.name= "Notebook Dell Inspiron I14-5448-C25 com Intel® Core™ i7-5500U- 8GB- 1TB- 8GB SSD- Leitor de Cartoes- HDMI- Placa Grafica de 2GB- LED 14- e Windows 10";
-    redemptiondone.category= "Computadores e Notebooks";
-    redemptiondone.partnerName= "Casas Bahia";
-    redemptiondone.estimatedDeliveryDate= "2017-09-12T19=16=14redemptiondone.883Z";
-    redemptiondone.unitPrice= "11redemptiondone.0";
-    redemptiondone.quantity= "1";
-    redemptiondone.partnerId= "60";
-    redemptiondone.partnerTypeId= "1";
-    redemptiondone.parameters= "null";
-    redemptiondone.key= "1";
-    redemptiondone.value= "1";
-    redemptiondone.currentConversionRate= "0";
-    redemptiondone.orderAmount= "0";
-    redemptiondone.orderPoints= "0";
-    redemptiondone.shippingPoints= "0";
-    redemptiondone.catalogId= "40210";
-    redemptiondone.name= "Herbert Lima_QA_AUTOMACAO";	
-    redemptiondone.login= "herbertredemptiondone.lima";
-    redemptiondone.cnpj= "null";
-    redemptiondone.cpf= "31022743821";
-    redemptiondone.rg= "null";
-    redemptiondone.companyName= "null";
-    redemptiondone.expeditionDate= "2017-09-12T19=16=14redemptiondone.884Z";
-    redemptiondone.issuing= "null";
-    redemptiondone.stateIssuing= "null";
-    redemptiondone.bornDate= "1983-11-03T00=00=00";
-    redemptiondone.genderTypeId= "1";
-    redemptiondone.zipCode= "06454000";
-    redemptiondone.street= "Alameda Rio Negro";
-    redemptiondone.neighborhood= "Alphaville Industrial";
-    redemptiondone.city= "Barueri";
-    redemptiondone.state= "SP";
-    redemptiondone.number= "585";
-    redemptiondone.complement= "bloco c 11 andar teste";
-    redemptiondone.emailType= "1";
-    redemptiondone.emailAddress= "herbertredemptiondone.lima@ltmredemptiondone.digital";
-    redemptiondone.phoneType= "2";
-    redemptiondone.ddd= "11";
-    redemptiondone.phoneNumber= "11111111";
-    redemptiondone.updateDate= "2017-09-12T19=16=14redemptiondone.884Z";
-    redemptiondone.insertDate= "2017-09-12T19=16=14redemptiondone.884Z";
-    redemptiondone.name= "Endereço de cadastro";
-    redemptiondone.login= "herbertredemptiondone.lima";
-    redemptiondone.cnpj= "null";
-    redemptiondone.cpf= "31022743821";
-    redemptiondone.rg= "408231117";
-    redemptiondone.companyName= "null";
-    redemptiondone.expeditionDate= "2017-09-12T19=16=14redemptiondone.884Z";
-    redemptiondone.issuing= "null";
-    redemptiondone.stateIssuing= "null";
-    redemptiondone.bornDate= "2017-09-12T19=16=14redemptiondone.884Z";
-    redemptiondone.genderTypeId= "1";
-    redemptiondone.zipCode= "06454000";
-    redemptiondone.street= "Alameda Rio Negro";
-    redemptiondone.neighborhood= "Alphaville Industrial";
-    redemptiondone.city= "Barueri";
-    redemptiondone.state= "SP";
-    redemptiondone.number= "585";
-    redemptiondone.complement= "bloco c 11 andar teste";
-    redemptiondone.emailType= "1";
-    redemptiondone.emailAddress= "herbertredemptiondone.lima@ltmredemptiondone.digital";
-    redemptiondone.phoneType= "1";
-    redemptiondone.ddd= "11";
-    redemptiondone.phoneNumber= "11112222";
-    redemptiondone.updateDate= "2017-09-12T19:16:14redemptiondone.884Z";
-    redemptiondone.insertDate= "2017-09-12T19:16:14redemptiondone.884Z";
-    redemptiondone.validationCode= "null";
-    redemptiondone.authenticationType= "1";
-    redemptiondone.isResend= "false";
-    redemptiondone.applicationId= "b5bd33f2-5e38-425e-9432-78b01afd19c6";
-    redemptiondone.ip= "189.44.200.218";
-    redemptiondone.serverIP= "100.106.140.72";
-    redemptiondone.serverName= "hml-marketplace-api.webpremios.com.br";
-    redemptiondone.browser= "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36";
-    redemptiondone.isDecimalCash= "true";
+    redemptiondone.shippingTypeId= 1;
+    //payments": [
+      //{
+        redemptiondone.payments[0].campaignConversionRate= 0; 
+        redemptiondone.payments[0].paymentType= 2; 
+        redemptiondone.payments[0].total= 11; 
+        redemptiondone.payments[0].cardNumber= null; 
+        redemptiondone.payments[0].cardHolder= null; 
+        redemptiondone.payments[0].cardHolderCPF= null; 
+        redemptiondone.payments[0].cardExpirationMonthDate= null; 
+        redemptiondone.payments[0].cardExpirationYearDate= null; 
+        redemptiondone.payments[0].numberOfPayments= 0; 
+        redemptiondone.payments[0].securityCode= null; 
+        redemptiondone.payments[0].catalogId= 0; 
+        redemptiondone.payments[0].ignoreApportionment= true; 
+        redemptiondone.payments[0].cardExpirationDate= "2017-09-12T19:16:14.883Z"; 
+        redemptiondone.payments[0].paymentMethod= 6; 
+        redemptiondone.payments[0].brokerId= null; 
+        redemptiondone.payments[0].transactionType= 0; 
+        redemptiondone.payments[0].paymentPlanId= 0; 
+        redemptiondone.payments[0].isExternalCash= true;
+      //}
+    //],
+    //"orders": [
+      //{
+        redemptiondone.orders[0].campaignConversionRate= 0;
+        redemptiondone.orders[0].orderId= 3889907;
+        redemptiondone.orders[0].vendorId= 60;
+        redemptiondone.orders[0].conversionRate= 100.0;
+        redemptiondone.orders[0].vendorOrderId= "string";
+        redemptiondone.orders[0].amount= 11.0;
+        redemptiondone.orders[0].shippingValue= 0.0;
+        redemptiondone.orders[0].shippingTypeId= 1;
+        redemptiondone.orders[0].orderType= 1;
+        redemptiondone.orders[0].redemptionStatus= 1;
+        redemptiondone.orders[0].descriptionRedeem= "teste";
+        //"items": [
+          //{
+            redemptiondone.orders[0].items[0].itemType= 1;
+            redemptiondone.orders[0].items[0].code= "teste";
+            redemptiondone.orders[0].items[0].value= 0;
+            redemptiondone.orders[0].items[0].quantity= 0;
+          //}
+        //],
+        //"products": [
+          //{
+            redemptiondone.orders[0].products[0].id= "3410c151e6ca4167a670";
+            redemptiondone.orders[0].products[0].name= "Notebook Dell Inspiron I14-5448-C25 com Intel® Core™ i7-5500U- 8GB- 1TB- 8GB SSD- Leitor de Cartoes- HDMI- Placa Grafica de 2GB- LED 14- e Windows 10";
+            redemptiondone.orders[0].products[0].category= "Computadores e Notebooks";
+            redemptiondone.orders[0].products[0].partnerName= "Casas Bahia";
+            redemptiondone.orders[0].products[0].estimatedDeliveryDate= "2017-09-12T19:16:14.883Z";
+            redemptiondone.orders[0].products[0].unitPrice= 11.0;
+            redemptiondone.orders[0].products[0].quantity= 1;
+            redemptiondone.orders[0].products[0].partnerId= "60";
+            redemptiondone.orders[0].products[0].partnerTypeId= 1;
+            redemptiondone.orders[0].products[0].parameters= null;
+            //"configuration": [
+              //{
+                redemptiondone.orders[0].products[0].configuration[0].key= "1";
+                redemptiondone.orders[0].products[0].configuration[0].value= "1";
+              //}
+            //]
+          //}
+        //],
+        redemptiondone.orders[0].currentConversionRate= 0;
+        redemptiondone.orders[0].orderAmount= 0;
+        redemptiondone.orders[0].orderPoints= 0;
+        redemptiondone.orders[0].shippingPoints= 0;
+      //}
+    //],
+    //"participant": {
+      redemptiondone.participant.catalogId= 40210;
+      redemptiondone.participant.name= "Herbert Lima_QA_AUTOMACAO";	
+      redemptiondone.participant.login= "herbert.lima";
+      redemptiondone.participant.cnpj= "null";
+      redemptiondone.participant.cpf= "31022743821";
+      redemptiondone.participant.rg= null;
+      redemptiondone.participant.companyName= null;
+      redemptiondone.participant.expeditionDate= "2017-09-12T19:16:14.884Z";
+      redemptiondone.participant.issuing= null;
+      redemptiondone.participant.stateIssuing= null;
+      redemptiondone.participant.bornDate= "1983-11-03T00:00:00";
+      redemptiondone.participant.genderTypeId= "1";
+      redemptiondone.participant.zipCode= "06454000";
+      redemptiondone.participant.street= "Alameda Rio Negro";
+      redemptiondone.participant.neighborhood= "Alphaville Industrial";
+      redemptiondone.participant.city= "Barueri";
+      redemptiondone.participant.state= "SP";
+      redemptiondone.participant.number= "585";
+      redemptiondone.participant.complement= "bloco c 11 andar teste";
+      //"emails": [
+        //{
+          redemptiondone.participant.emails[0].emailType= 1;
+          redemptiondone.participant.emails[0].emailAddress= "herbert.lima@ltm.digital";
+        //}
+      //],
+      //"phones": [
+        //{
+          redemptiondone.participant.phones[0].phoneType= 2;
+          redemptiondone.participant.phones[0].ddd= "11";
+          redemptiondone.participant.phones[0].phoneNumber= "11111111";
+        //}
+      //],
+      redemptiondone.participant.updateDate= "2017-09-12T19:16:14.884Z";
+      redemptiondone.participant.insertDate= "2017-09-12T19:16:14.884Z";
+    //},
+    //"orderShipping": {
+      redemptiondone.orderShipping.name= "Endereço de cadastro";
+      redemptiondone.orderShipping.login= "herbert.lima";
+      redemptiondone.orderShipping.cnpj= null;
+      redemptiondone.orderShipping.cpf= "31022743821";
+      redemptiondone.orderShipping.rg= "408231117";
+      redemptiondone.orderShipping.companyName= null;
+      redemptiondone.orderShipping.expeditionDate= "2017-09-12T19:16:14.884Z";
+      redemptiondone.orderShipping.issuing= null;
+      redemptiondone.orderShipping.stateIssuing= null;
+      redemptiondone.orderShipping.bornDate= "2017-09-12T19:16:14.884Z";
+      redemptiondone.orderShipping.genderTypeId= "1";
+      redemptiondone.orderShipping.zipCode= "06454000";
+      redemptiondone.orderShipping.street= "Alameda Rio Negro";
+      redemptiondone.orderShipping.neighborhood= "Alphaville Industrial";
+      redemptiondone.orderShipping.city= "Barueri";
+      redemptiondone.orderShipping.state= "SP";
+      redemptiondone.orderShipping.number= "585";
+      redemptiondone.orderShipping.complement= "bloco c 11 andar teste";
+      //"emails": [
+        //{
+          redemptiondone.orderShipping.emails[0].emailType= 1;
+          redemptiondone.orderShipping.emails[0].emailAddress= "herbert.lima@ltm.digital";
+        //}
+      //],
+      //"phones": [
+        //{
+          redemptiondone.orderShipping.phones[0].phoneType= 1;
+          redemptiondone.orderShipping.phones[0].ddd= "11";
+          redemptiondone.orderShipping.phones[0].phoneNumber= "11112222";
+        //}
+      //],
+      redemptiondone.orderShipping.updateDate= "2017-09-12T19:16:14.884Z";
+      redemptiondone.orderShipping.insertDate= "2017-09-12T19:16:14.884Z";
+    //},
+    //"authentication": {
+      redemptiondone.authentication.validationCode= null;
+      redemptiondone.authentication.authenticationType= 1;
+      redemptiondone.authentication.isResend= false;
+    //},
+    //"application": {
+      redemptiondone.application.applicationId= "b5bd33f2-5e38-425e-9432-78b01afd19c6";
+      redemptiondone.application.ip= "189.44.200.218";
+      redemptiondone.application.serverIP= "100.106.140.72";
+      redemptiondone.application.serverName= "hml-marketplace-api.webpremios.com.br";
+      redemptiondone.application.browser= "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36";
+    //},
+    redemptiondone.isDecimalCash= true;
 
     return redemptiondone;
 };
