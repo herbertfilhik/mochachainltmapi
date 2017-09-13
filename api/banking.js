@@ -6,6 +6,7 @@ var Redemptionsfactory = require('../factories/Redemptionsfactory.js');
 var FinishRedemptionfactory = require('../factories/FinishRedemptionfactory.js');
 var ReversalRedemptionfactory = require('../factories/ReversalRedemptionfactory.js');
 var Creditfactory = require('../factories/Creditfactory.js');
+var RedemptionDoneFactory = require('../factories/RedemptionDoneFactory.js');
 var expect = chai.expect;
 
 describe('Testes na Api do Banking', function() {
@@ -125,12 +126,12 @@ describe('Testes na Api do Banking', function() {
      });
 
      //API Redemptions
-     xit('Deve retornar 200 para a api CashReversal', function() {
+     xit('Deve retornar 200 para a api Redemption', function() {
         var banking = new BankingService(this);       
         return banking.getCashReversal(config.CASHREVERSAL).then(function(response){
              expect(response).to.have.status(config.util.HTTP.OK);                                       
         }).catch(function(responseerr) {
-            expect(responseerr, 'Deve retornar 200 para a api CashReversal').to.have.status(config.util.HTTP.OK);
+            expect(responseerr, 'Deve retornar 200 para a api Redemption').to.have.status(config.util.HTTP.OK);
         });
      });
 
@@ -210,8 +211,12 @@ describe('Testes na Api do Banking', function() {
 
     it('Deve finalizar o resgate com sucesso', function() {
         var banking = new BankingService(this);
+
         var creditfactory  = new Creditfactory(this);
         var credit =  creditfactory.buildDefault();    
+
+        var redemptiondonefactory = new RedemptionDoneFactory(this);
+        var redemptiondone = redemptiondonefactory.buildDefault();
 
         //Valida o Balanço do Participante
         return banking.getBalance(config.CAMPAIGN_ID,config.USERS[0].userid).then(function(response){
@@ -224,20 +229,44 @@ describe('Testes na Api do Banking', function() {
             expect(response.body.projectId).to.equal(config.BALANCEACCOUNT[0].projectId);
       
             //Valida o extrato do participante
-            return banking.getExtract(config.CAMPAIGN_ID,config.USERS[0].userid).then(function(response){
-                expect(response).to.have.status(config.util.HTTP.OK);
-                expect(response.body.accountHolderId).to.equal(config.EXTRACTACCOUNT[0].accountHolderId);
+            return banking.getExtract(config.CAMPAIGN_ID,config.USERS[0].userid).then(function(responseextract){
+                expect(responseextract).to.have.status(config.util.HTTP.OK);
+                expect(responseextract.body.accountHolderId).to.equal(config.EXTRACTACCOUNT[0].accountHolderId);
                 //console.log(credit);
 
                 //Credita accountHolderId
-                return banking.postCredit(credit).then(function(response){
-                    expect(response).to.have.status(config.util.HTTP.OK);                    
-                    expect(response.body).to.equal(true);                    
-                    console.log(response);                                       
-                }).catch(function(responseerr) {
-                    //console.log(responseerr);
-                    expect(responseerr, 'Deve Creditar accountHolderId').to.have.status(config.util.HTTP.OK);
-                });
+                return banking.postCredit(credit).then(function(responsecredit){
+                    expect(responsecredit).to.have.status(config.util.HTTP.OK);                    
+                    expect(responsecredit.body).to.equal(true);                    
+                    //console.log(response);
+                    
+                    //Validar o BankAccount Extract
+                    return banking.getBankAccountExtract(config.CAMPAIGN_ID,config.USERS[0].userid).then(function(AccountExtract){
+                        expect(AccountExtract).to.have.status(config.util.HTTP.OK);                    
+                        //console.log(response);
+                        expect(AccountExtract.body.accountHolderId).to.equal(config.BANKACCOUNTEXTRACT[0].accountHolderId);
+
+                       //Validar o balance by Login
+                        return banking.getBalanceLogin(config.CAMPAIGN_ID,config.USERS[0].username).then(function(AccountExtract){
+                            expect(AccountExtract).to.have.status(config.util.HTTP.OK);                    
+                            //console.log(response);
+                            expect(response.body.loyaltyBalanceCampaign[0].projectId).to.equal(config.BALANCELOGIN[0].loyaltyBalanceCampaign[0].projectId);
+                            expect(response.body.loyaltyBalanceCampaign[0].projectName).to.equal(config.BALANCELOGIN[0].loyaltyBalanceCampaign[0].projectName);
+                            expect(response.body.loyaltyBalanceCampaign[0].accountHolderId).to.equal(config.BALANCELOGIN[0].loyaltyBalanceCampaign[0].accountHolderId);
+                            expect(response.body.loyaltyBalanceCampaign[0].accountId).to.equal(config.BALANCELOGIN[0].loyaltyBalanceCampaign[0].accountId);
+                            expect(response.body.projectId).to.equal(config.BALANCELOGIN[0].projectId);
+
+                            //Validar a realização de Resgate
+                            return banking.postredemptiondone(redemptiondone).then(function(responseredemptiondone){
+                                expect(responseredemptiondone).to.have.status(config.util.HTTP.OK);
+                                console.log(responseredemptiondone);
+                                expect(responseredemptiondone.body.approved).to.equal(config.REDEMPTIONDONE[0].approved);    
+                                
+
+                            })
+                        })
+                    })
+                })
             })        
         })
     });
