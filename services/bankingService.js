@@ -126,7 +126,7 @@ BankingService.prototype.reversalredemption = function(reversalredemption) {
     this.util.timeout(config.util.DEFAULT_SECONDS);
     var baseurl = this.urlService.getFullUrlPrincipalApi();
     var header = this.util.getHeaderJson('');    
-    return this.util.putUrl(baseurl, reversalredemption, header,'/redemptions'+'/reversal');
+    return this.util.putUrl(baseurl, reversalredemption, header,'/redemptions/reversal');
 };
 
 //https://hml-banking-api.webpremios.com.br:443/v1/redemptions/releasePoints/30207/3629883

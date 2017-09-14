@@ -25,9 +25,9 @@ ReversalRedemptionfactory.prototype.build = function()
 ReversalRedemptionfactory.prototype.buildDefault = function(){
     var reversalredemption = this.build();
 
-    reversalredemption.authorizationCode= "8a77fb8e-a109-4424-857d-e908580e869a",
-    reversalredemption.orderId= "9066059",
-    reversalredemption.reversalValue= "0.0"
+    reversalredemption.authorizationCode= "xxx",
+    reversalredemption.orders[0].orderId= "xxx",
+    reversalredemption.orders[0].reversalValue= "xxx"
     
     return reversalredemption;
 };

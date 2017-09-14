@@ -96,6 +96,16 @@ config = {
         }
     ],
 
+    "REDEMPTIONFINISH":[
+        {
+            apportionments: [],
+            authorizationCode: "eb376e37-62f9-4fdb-bf37-ea022dec7426",
+            status: 9,
+            statusDescription: "Canceled",
+            orderStatus: []
+        }
+    ],
+
     "EXTRACTACCOUNT":[
         {
             insertDate: "2017-09-05T14:12:47.157",
