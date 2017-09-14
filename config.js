@@ -87,12 +87,12 @@ config = {
 
     "REDEMPTIONDONE":[
         {
-            "approved": true,
-            "channel": 1,
-            "authorizationCode": "d54bc2d6-8d88-41fe-a93e-070d0ab7a53e",
-            "status": 1,
-            "statusDescription": "Locked",
-            "orderStatus": []
+            approved: true,
+            channel: 1,
+            authorizationCode: "a3c5f9fc-b460-4369-94a5-ac572b163762",
+            status: 1,
+            statusDescription: "Locked",
+            orderStatus: []
         }
     ],
 

@@ -209,7 +209,7 @@ describe('Testes na Api do Banking', function() {
         
     });
 
-    it('Deve finalizar o resgate com sucesso', function() {
+    it('Deve cancelar o resgate com sucesso', function() {
         var banking = new BankingService(this);
 
         var creditfactory  = new Creditfactory(this);
@@ -217,6 +217,10 @@ describe('Testes na Api do Banking', function() {
 
         var redemptiondonefactory = new RedemptionDoneFactory(this);
         var redemptiondone = redemptiondonefactory.buildDefault();
+
+        var finishredemptionfactory = new FinishRedemptionfactory(this);
+        var finishredemption = finishredemptionfactory.buildDefault();
+
 
         //Valida o Balanço do Participante
         return banking.getBalance(config.CAMPAIGN_ID,config.USERS[0].userid).then(function(response){
@@ -256,13 +260,19 @@ describe('Testes na Api do Banking', function() {
                             expect(response.body.loyaltyBalanceCampaign[0].accountId).to.equal(config.BALANCELOGIN[0].loyaltyBalanceCampaign[0].accountId);
                             expect(response.body.projectId).to.equal(config.BALANCELOGIN[0].projectId);
 
-                            //Validar a realização de Resgate
+                            //Validar o cancelamento de Resgate
                             return banking.postredemptiondone(redemptiondone).then(function(responseredemptiondone){
                                 expect(responseredemptiondone).to.have.status(config.util.HTTP.OK);
+                                finishredemption.authorizationCode = responseredemptiondone.body.authorizationCode;                        
                                 //console.log(responseredemptiondone);
+                                //console.log(finishredemption);
                                 expect(responseredemptiondone.body.approved).to.equal(config.REDEMPTIONDONE[0].approved);    
                                 
-
+                                //Validar a Finalização de Resgate
+                                return banking.putredemption(finishredemption).then(function(responseredemptionfinish){
+                                    console.log(responseredemptionfinish);
+                                    expect(responseredemptionfinish).to.have.status(config.util.HTTP.OK);
+                                })
                             })
                         })
                     })
