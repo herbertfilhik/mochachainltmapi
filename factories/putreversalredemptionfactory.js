@@ -8,11 +8,11 @@ PutReversalRedemptionfactory.prototype.build = function()
 
   var putreversalredemption = {        
 
-        authorizationCode: null,
+        authorizationCode: "42ddcc00-f27f-419e-ba5f-ada050d0c564",
         orders: [
           {
-            orderId: null,
-            reversalValue: null,
+            orderId: 3890006,
+            reversalValue: 0.01,
             items: [
               {
                 itemType: null,

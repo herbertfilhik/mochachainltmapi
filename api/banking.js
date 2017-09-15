@@ -262,21 +262,22 @@ describe('Testes na Api do Banking', function() {
                             expect(response.body.loyaltyBalanceCampaign[0].accountId, 'Deve exibir exibir o accountId').to.equal(config.BALANCELOGIN[0].loyaltyBalanceCampaign[0].accountId);
                             expect(response.body.projectId, 'Deve exibir exibir o projectId').to.equal(config.BALANCELOGIN[0].projectId);
 
-                            //Validar o cancelamento de Resgate
+                            //Validar a Efetivação do Resgate
                             return banking.postredemptiondone(redemptiondone).then(function(responseredemptiondone){
                                 expect(responseredemptiondone, 'Deve retornar o código 200 no retorno da chamada').to.have.status(config.util.HTTP.OK);
                                 finishredemption.authorizationCode = responseredemptiondone.body.authorizationCode;                        
                                 //console.log(responseredemptiondone);
                                 //console.log(finishredemption);
-                                expect(responseredemptiondone.body.approved, 'Deve exibir exibir o xxx').to.equal(config.REDEMPTIONDONE[0].approved);    
-                                
+                                expect(responseredemptiondone.body.approved, 'Deve exibir exibir False').to.equal(config.REDEMPTIONDONE[0].approved);    
+                                expect(responseredemptiondone.body.statusDescription, 'Deve exibir exibir False').to.equal(config.REDEMPTIONDONE[0].statusDescription);
+
                                 //Validar a Finalização de Resgate
-                                return banking.putredemption(finishredemption).then(function(responseredemptionfinish){
+                                /*return banking.putredemption(finishredemption).then(function(responseredemptionfinish){
                                     //console.log(responseredemptionfinish);
                                     expect(responseredemptionfinish, 'Deve retornar o código 200 no retorno da chamada').to.have.status(config.util.HTTP.OK);                                
                                     expect(responseredemptionfinish.body.statusDescription, 'Deve exibir exibir o statusDescription').to.equal(config.REDEMPTIONFINISH[0].statusDescription);
                                     //console.log(responseredemptionfinish.body.statusDescription);
-                                })
+                                })*/
                             })
                         })
                     })
@@ -286,7 +287,7 @@ describe('Testes na Api do Banking', function() {
     });
 
 
-    it('Deve realizar um reversal (estorno) com valor excedido', function() {
+    it('Deve impmedir o sistema de realizar um reversal (estorno) com valor excedido', function() {
 
         var banking = new BankingService(this);   
 
@@ -308,9 +309,11 @@ describe('Testes na Api do Banking', function() {
              //Realizar PUT para realizar Reversal da Redemption
                  return banking.putredemptionreversal(putreversalredemption).then(function(responseputredemptionreversal){
                  expect(responseputredemptionreversal, 'Deve retornar 200 para a chamada').to.have.status(config.util.HTTP.OK);
-                 console.log(responseputredemptionreversal.body);
+                 //console.log(responseputredemptionreversal.body);
                  expect(responseputredemptionreversal.body.authorizationCode, 'Deve ser o mesmo authorizationCode entre GET e PUT').to.equal(config.REDEMPTIONFORREVERSAL[0].authorizationCode);
-                 expect(responseputredemptionreversal.body.statusDescription, 'Deve retornar o status Error').to.equal(config.PUTFORREVERSALREDEMPTION[0].statusDescription);   
+                 console.log(responseputredemptionreversal.body)
+                 console.log(responseputredemptionreversal.body.statusDescription);
+                 expect(responseputredemptionreversal.body.statusDescription, 'Deve retornar o status Error xxx').to.equal(config.PUTFORREVERSALREDEMPTION[0].statusDescription);   
                  expect(responseputredemptionreversal.body.orders[0].orderId, 'Deve retornar o orderId').to.equal(config.PUTFORREVERSALREDEMPTION[0].orderId);   
                  //console.log(responseputredemptionreversal.body.authorizationCode);
                  //console.log(responseputredemptionreversal.body.statusDescription);

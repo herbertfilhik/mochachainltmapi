@@ -89,7 +89,7 @@ config = {
         {
             approved: true,
             channel: 1,
-            authorizationCode: "a3c5f9fc-b460-4369-94a5-ac572b163762",
+            authorizationCode: null,
             status: 1,
             statusDescription: "Locked",
             orderStatus: []
@@ -153,8 +153,10 @@ config = {
     "PUTFORREVERSALREDEMPTION":[
         {
             statusDescription: "Error",
-            orderId: 3890006            
+            orderId: 3890006
+            
         }
+
     ],
 
     "REDEMPTIONSTATUSDESCRIPTION": "Declined",

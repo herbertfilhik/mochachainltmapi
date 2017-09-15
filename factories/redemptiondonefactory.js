@@ -175,7 +175,7 @@ RedemptionDonefactory.prototype.build = function()
 RedemptionDonefactory.prototype.buildDefault = function(){
     var redemptiondone = this.build();
 
-    redemptiondone.parentOrderId= 3734804;
+    redemptiondone.parentOrderId= 3734896;
     redemptiondone.participantId= "14124177";
     redemptiondone.conversionRate= 100.0;
     redemptiondone.campaignId= "30207";
@@ -205,7 +205,7 @@ RedemptionDonefactory.prototype.buildDefault = function(){
     //"orders": [
       //{
         redemptiondone.orders[0].campaignConversionRate= 0;
-        redemptiondone.orders[0].orderId= 3889907;
+        redemptiondone.orders[0].orderId= 3890006;
         redemptiondone.orders[0].vendorId= 60;
         redemptiondone.orders[0].conversionRate= 100.0;
         redemptiondone.orders[0].vendorOrderId= "string";
@@ -225,11 +225,11 @@ RedemptionDonefactory.prototype.buildDefault = function(){
         //],
         //"products": [
           //{
-            redemptiondone.orders[0].products[0].id= "3410c151e6ca4167a670";
-            redemptiondone.orders[0].products[0].name= "Notebook Dell Inspiron I14-5448-C25 com Intel® Core™ i7-5500U- 8GB- 1TB- 8GB SSD- Leitor de Cartoes- HDMI- Placa Grafica de 2GB- LED 14- e Windows 10";
+            redemptiondone.orders[0].products[0].id= "42b4fd8214bb481494de";
+            redemptiondone.orders[0].products[0].name= "Tablet DL Tab Kids Branco com Tela de 7- 8GB- 2 Cameras- Wi-Fi- Suporte a Modem 3G- Android 4.4- Processador Quad-Core e Capa Protetora Laranja";
             redemptiondone.orders[0].products[0].category= "Computadores e Notebooks";
-            redemptiondone.orders[0].products[0].partnerName= "Casas Bahia";
-            redemptiondone.orders[0].products[0].estimatedDeliveryDate= "2017-09-12T19:16:14.883Z";
+            redemptiondone.orders[0].products[0].partnerName= "DL";
+            redemptiondone.orders[0].products[0].estimatedDeliveryDate= "2017-09-20T14:17:17.1512858+00:00";
             redemptiondone.orders[0].products[0].unitPrice= 11.0;
             redemptiondone.orders[0].products[0].quantity= 1;
             redemptiondone.orders[0].products[0].partnerId= "60";
