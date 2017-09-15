@@ -49,6 +49,14 @@ BankingService.prototype.getRedemptions = function(redemptions) {
     return this.util.getUrl(baseurl, header,'/redemptions/'+redemptions);
 };
 
+//https://hml-banking-api.webpremios.com.br:443/v1/redemptions/42ddcc00-f27f-419e-ba5f-ada050d0c564
+BankingService.prototype.getRedemptionsforreversal = function(redemptionsforreversal) {
+    this.util.timeout(config.util.DEFAULT_SECONDS);
+    var baseurl = this.urlService.getFullUrlPrincipalApi();
+    var header = this.util.getHeaderJson('');    
+    return this.util.getUrl(baseurl, header,'/redemptions/'+redemptionsforreversal);
+};
+
 //https://hml-banking-api.webpremios.com.br:443/v1/account/campaigns/30207/participants/14124177/toExpire/2017-12-31
 BankingService.prototype.getTransToExpire = function(campaignid, userid, datetoexpire) {
     this.util.timeout(config.util.DEFAULT_SECONDS);
@@ -119,6 +127,14 @@ BankingService.prototype.putredemption = function(finishredemption) {
     var baseurl = this.urlService.getFullUrlPrincipalApi();
     var header = this.util.getHeaderJson('');    
     return this.util.putUrl(baseurl, finishredemption, header,'/redemptions/finishRedemption');
+};
+
+//https://hml-banking-api.webpremios.com.br:443/v1/redemptions/reversal
+BankingService.prototype.putredemptionreversal = function(putreversalredemption){
+    this.util.timeout(config.util.DEFAULT_SECONDS);
+    var baseurl = this.urlService.getFullUrlPrincipalApi();
+    var header = this.util.getHeaderJson('');    
+    return this.util.putUrl(baseurl, putreversalredemption, header,'/redemptions/reversal');
 };
 
 //https://hml-banking-api.webpremios.com.br:443/v1/redemptions/reversal

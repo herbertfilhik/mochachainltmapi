@@ -140,6 +140,23 @@ config = {
         }
     ],
     
+
+    "REDEMPTIONFORREVERSAL":[
+        {
+            authorizationCode: "42ddcc00-f27f-419e-ba5f-ada050d0c564",
+            campaignId: '30207',
+            parentOrderId: 3734896,
+            orderId: 3890006 
+        }
+    ],
+
+    "PUTFORREVERSALREDEMPTION":[
+        {
+            statusDescription: "Error",
+            orderId: 3890006            
+        }
+    ],
+
     "REDEMPTIONSTATUSDESCRIPTION": "Declined",
 
     "USERS":[{ username: 'herbert.lima', userid: 14124177 }],

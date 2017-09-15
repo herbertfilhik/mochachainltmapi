@@ -5,6 +5,7 @@ var BankingService = require('../services/bankingService.js');
 var Redemptionsfactory = require('../factories/Redemptionsfactory.js');
 var FinishRedemptionfactory = require('../factories/FinishRedemptionfactory.js');
 var ReversalRedemptionfactory = require('../factories/ReversalRedemptionfactory.js');
+var PutReversalRedemptionfactory = require('../factories/PutReversalRedemptionfactory.js');
 var Creditfactory = require('../factories/Creditfactory.js');
 var RedemptionDoneFactory = require('../factories/RedemptionDoneFactory.js');
 var expect = chai.expect;
@@ -283,4 +284,39 @@ describe('Testes na Api do Banking', function() {
             })        
         })
     });
-});     
+
+
+    it('Deve realizar um reversal (estorno) com valor excedido', function() {
+
+        var banking = new BankingService(this);   
+
+        var putreversalredemptionfactory = new PutReversalRedemptionfactory(this);
+        var putreversalredemption = putreversalredemptionfactory.buildDefault();
+
+        //Realiza GET para visualizar os dados da Redemption
+        
+        return banking.getRedemptionsforreversal(config.REDEMPTIONFORREVERSAL[0].authorizationCode).then(function(responseforreversalredemption){
+             expect(responseforreversalredemption, 'Deve retornar 200 para a chamada').to.have.status(config.util.HTTP.OK);              
+             //console.log(responseforreversalredemption.body);
+             expect(responseforreversalredemption.body.campaignId, 'Deve retornar a campaignId').to.equal(config.REDEMPTIONFORREVERSAL[0].campaignId);
+             expect(responseforreversalredemption.body.parentOrderId, 'Deve retornar a parentOrderId').to.equal(config.REDEMPTIONFORREVERSAL[0].parentOrderId);
+             expect(responseforreversalredemption.body.orders[0].orderId, 'Deve retornar a campaignId').to.equal(config.REDEMPTIONFORREVERSAL[0].orderId);             
+             //console.log(responseforreversalredemption.body.campaignId);
+             //console.log(responseforreversalredemption.body.parentOrderId);
+             //console.log(responseforreversalredemption.body.orders[0].orderId);
+             
+             //Realizar PUT para realizar Reversal da Redemption
+                 return banking.putredemptionreversal(putreversalredemption).then(function(responseputredemptionreversal){
+                 expect(responseputredemptionreversal, 'Deve retornar 200 para a chamada').to.have.status(config.util.HTTP.OK);
+                 console.log(responseputredemptionreversal.body);
+                 expect(responseputredemptionreversal.body.authorizationCode, 'Deve ser o mesmo authorizationCode entre GET e PUT').to.equal(config.REDEMPTIONFORREVERSAL[0].authorizationCode);
+                 expect(responseputredemptionreversal.body.statusDescription, 'Deve retornar o status Error').to.equal(config.PUTFORREVERSALREDEMPTION[0].statusDescription);   
+                 expect(responseputredemptionreversal.body.orders[0].orderId, 'Deve retornar o orderId').to.equal(config.PUTFORREVERSALREDEMPTION[0].orderId);   
+                 //console.log(responseputredemptionreversal.body.authorizationCode);
+                 //console.log(responseputredemptionreversal.body.statusDescription);
+                 //console.log(responseputredemptionreversal.body.orders[0].orderId);    
+            })
+        })
+    });
+
+});
