@@ -161,6 +161,10 @@ config = {
 
     "REDEMPTIONSTATUSDESCRIPTION": "Declined",
 
+    "FINISHREDEMPTIONSTATUSDESCRIPTION": "It's not possible to confirm an unauthorized payment: 94aec5df-42cc-49f3-8a40-777a474c37aa",
+
+    "VENDORID": 60,
+
     "USERS":[{ username: 'herbert.lima', userid: 14124177 }],
     "USERS_INVALID":[{ username_invalid: 'XXX', userid_invalid: 'XXX' }],  
     "MESSAGE_INVALID": 'An error has occurred.',            

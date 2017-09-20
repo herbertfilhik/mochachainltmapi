@@ -129,6 +129,14 @@ BankingService.prototype.putredemption = function(finishredemption) {
     return this.util.putUrl(baseurl, finishredemption, header,'/redemptions/finishRedemption');
 };
 
+//https://hml-banking-api.webpremios.com.br:443/v1/redemptions/finishRedemption
+BankingService.prototype.putsuccessfinishredemption = function(successfinishredemption) {
+    this.util.timeout(config.util.DEFAULT_SECONDS);
+    var baseurl = this.urlService.getFullUrlPrincipalApi();
+    var header = this.util.getHeaderJson('');    
+    return this.util.putUrl(baseurl, successfinishredemption, header,'/redemptions/finishRedemption');
+};
+
 //https://hml-banking-api.webpremios.com.br:443/v1/redemptions/reversal
 BankingService.prototype.putredemptionreversal = function(putreversalredemption){
     this.util.timeout(config.util.DEFAULT_SECONDS);
@@ -178,5 +186,14 @@ BankingService.prototype.getBankAccountExtract = function(campaignid, userid) {
     var header = this.util.getHeaderJson('');    
     return this.util.getUrl(baseurl, header,'/bankaccount/campaigns/'+campaignid+'/participants/'+userid+'/extract');
 };
+
+//https://hml-banking-api.webpremios.com.br:443/v1/account/campaigns/30207/participants/14124177/balance/live/60
+BankingService.prototype.getbalancelive = function(campaignid, userid, vendorid) {
+    this.util.timeout(config.util.DEFAULT_SECONDS);
+    var baseurl = this.urlService.getFullUrlPrincipalApi();
+    var header = this.util.getHeaderJson('');    
+    return this.util.getUrl(baseurl, header,'/account/campaigns/'+campaignid+'/participants/'+userid+'/balance/live/'+vendorid);
+};
+
 
 module.exports = BankingService;

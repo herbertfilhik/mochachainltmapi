@@ -8,6 +8,7 @@ var ReversalRedemptionfactory = require('../factories/ReversalRedemptionfactory.
 var PutReversalRedemptionfactory = require('../factories/PutReversalRedemptionfactory.js');
 var Creditfactory = require('../factories/Creditfactory.js');
 var RedemptionDoneFactory = require('../factories/RedemptionDoneFactory.js');
+var SuccessFinishRedemptionFactory = require('../factories/successfinishredemptionfactory.js');
 var expect = chai.expect;
 
 describe('Testes na Api do Banking', function() {
@@ -17,7 +18,7 @@ describe('Testes na Api do Banking', function() {
     });  
 
     //API Balance
-    it('Deve obter saldo do participante', function() {
+    xit('Deve obter saldo do participante', function() {
        var banking = new BankingService(this);       
        return banking.getBalance(config.CAMPAIGN_ID,config.USERS[0].userid).then(function(response){
             expect(response, 'Deve retornar 200 para a chamada').to.have.status(config.util.HTTP.OK);                          
@@ -26,7 +27,7 @@ describe('Testes na Api do Banking', function() {
     });
 
     //API Balance - Inválido
-    it('Deve impedir obter saldo do participante pois a Campanha e Participante são inválidos', function(){
+    xit('Deve impedir obter saldo do participante pois a Campanha e Participante são inválidos', function(){
         var banking = new BankingService(this);       
         return banking.getBalanceInvalid(config.CAMPAIGN_ID_INVALID,config.USERS_INVALID[0].userid_invalid).then(function(response){
              expect(response,'Deve impedir obter saldo do participante pois a Campanha e Participante são inválidos').to.have.status(config.util.HTTP.NOT_FOUND);                          
@@ -37,7 +38,7 @@ describe('Testes na Api do Banking', function() {
     });
 
     //API Balance by Login
-    it('Deve obter saldo do participante pelo login informado', function() {
+    xit('Deve obter saldo do participante pelo login informado', function() {
         var banking = new BankingService(this);       
         return banking.getBalanceLogin(config.CAMPAIGN_ID,config.USERS[0].username).then(function(response){
              expect(response, 'Deve retornar 200 para a chamada').to.have.status(config.util.HTTP.OK);                          
@@ -46,7 +47,7 @@ describe('Testes na Api do Banking', function() {
      });
 
     //API Balance by Login - Inválido
-    it('Deve impedir obter saldo do participante pelo login devido a inserção de login inválido', function() {
+    xit('Deve impedir obter saldo do participante pelo login devido a inserção de login inválido', function() {
         var banking = new BankingService(this);       
         return banking.getBalanceLoginInvalid(config.CAMPAIGN_ID_INVALID,config.USERS_INVALID[0].username_invalid).then(function(responsebalancebylogin){
              expect(responsebalancebylogin, 'Deve retornar 404 para a chamada pois o Login é inválido').to.have.status(config.util.HTTP.NOT_FOUND);                          
@@ -60,7 +61,7 @@ describe('Testes na Api do Banking', function() {
      });
 
      //API Redemptions
-     it('Deve obter informações sobre os resgates realizados', function() {
+     xit('Deve obter informações sobre os resgates realizados', function() {
         var banking = new BankingService(this);       
         return banking.getRedemptions(config.REDEMPTIONS).then(function(response){
              expect(response, 'Deve retornar 200 para a chamada').to.have.status(config.util.HTTP.OK);                                       
@@ -70,7 +71,7 @@ describe('Testes na Api do Banking', function() {
      });
 
      //API Transaction To Expire
-     it('Deve obter informações sobre as transações a expirar', function() {
+     xit('Deve obter informações sobre as transações a expirar', function() {
         var banking = new BankingService(this);       
         return banking.getTransToExpire(config.CAMPAIGN_ID,config.USERS[0].userid,config.DATETOEXPIRE).then(function(response){
              expect(response, 'Deve retornar 200 para a chamada').to.have.status(config.util.HTTP.OK);                                       
@@ -80,7 +81,7 @@ describe('Testes na Api do Banking', function() {
      }); 
      
      //API Transaction To Expire com data inválida (0000-00-00)
-     it('Deve impedir a obtenção de informações sobre as transações a expirar (0000-00-00)', function() {
+     xit('Deve impedir a obtenção de informações sobre as transações a expirar (0000-00-00)', function() {
         var banking = new BankingService(this);       
         return banking.getTransToExpireDateInvalid(config.CAMPAIGN_ID,config.USERS[0].userid,config.INVALIDDATETOEXPIRE).then(function(response){
              expect(response, 'Deve retornar 400 para a chamada').to.have.status(config.util.HTTP.BAD_REQUEST);                                       
@@ -90,7 +91,7 @@ describe('Testes na Api do Banking', function() {
      }); 
 
      //API Transaction To Expire com data inválida (2017-13-32)
-     it('Deve impedir a obtenção de informações sobre as transações a expirar (2017-13-32)', function() {
+     xit('Deve impedir a obtenção de informações sobre as transações a expirar (2017-13-32)', function() {
         var banking = new BankingService(this);       
         return banking.getTransToExpireDateInvalidFormat(config.CAMPAIGN_ID,config.USERS[0].userid,config.INVALIDFORMATDATETOEXPIRE).then(function(response){
              expect(response, 'Deve retornar 200 para a chamada').to.have.status(config.util.HTTP.BAD_REQUEST);                                       
@@ -100,7 +101,7 @@ describe('Testes na Api do Banking', function() {
      });     
     
      //API Account Statement
-     it('Deve retornar 404 para a api Account Statement', function() {
+     xit('Deve retornar 404 para a api Account Statement', function() {
         var banking = new BankingService(this);       
         return banking.getAccountStatement(config.CAMPAIGN_ID,config.USERS[0].userid,config.DATEFROM,config.DATETO).then(function(response){
              expect(response, 'Deve retornar 404 para a chamada').to.have.status(config.util.HTTP.NOT_FOUND);                                       
@@ -110,7 +111,7 @@ describe('Testes na Api do Banking', function() {
      });     
 
      //API Get Parameter Value
-     it('Deve retornar 200 para a api Get Parameter Value', function() {
+     xit('Deve retornar 200 para a api Get Parameter Value', function() {
         var banking = new BankingService(this);       
         return banking.getParameterValue(config.CAMPAIGN_ID).then(function(response){
              expect(response, 'Deve retornar 200 para a chamada').to.have.status(config.util.HTTP.OK);                                       
@@ -120,7 +121,7 @@ describe('Testes na Api do Banking', function() {
      });
 
      //API CashReversal
-     it('Deve retornar 200 para a api CashReversal', function() {
+     xit('Deve retornar 200 para a api CashReversal', function() {
         var banking = new BankingService(this);       
         return banking.getCashReversal(config.CASHREVERSAL).then(function(response){
              expect(response, 'Deve retornar 200 para a chamada').to.have.status(config.util.HTTP.OK);                                       
@@ -130,7 +131,7 @@ describe('Testes na Api do Banking', function() {
      });
 
      //API Redemptions
-     it('Deve retornar 200 para a api Redemption', function() {
+     xit('Deve retornar 200 para a api Redemption', function() {
         var banking = new BankingService(this);       
         return banking.getCashReversal(config.CASHREVERSAL).then(function(response){
              expect(response, 'Deve retornar 200 para a chamada').to.have.status(config.util.HTTP.OK);                                       
@@ -140,7 +141,7 @@ describe('Testes na Api do Banking', function() {
      });
 
      //API Redemptions POST
-     it('Deve retornar 404 para a Redemption pois foi informada uma campanha inválida', function() {
+     xit('Deve retornar 404 para a Redemption pois foi informada uma campanha inválida', function() {
         var banking = new BankingService(this);
         var redemptionsfactory  = new Redemptionsfactory(this);
         var redemption =  redemptionsfactory.buildDefault();
@@ -157,7 +158,7 @@ describe('Testes na Api do Banking', function() {
      });
 
      //API finishRedemption PUT
-     it('Deve retornar 400 para a FinishRedemption', function() {
+     xit('Deve retornar 400 para a FinishRedemption', function() {
         var banking = new BankingService(this);
         var finishredemptionfactory  = new FinishRedemptionfactory(this);
         var finishredemption =  finishredemptionfactory.buildDefault();
@@ -174,7 +175,7 @@ describe('Testes na Api do Banking', function() {
      });
 
     //API Reversal Redemption PUT
-    it('Deve retornar 400 para a Reversal Redemption', function() {
+    xit('Deve retornar 400 para a Reversal Redemption', function() {
         var banking = new BankingService(this);
         var reversalredemptionfactory  = new ReversalRedemptionfactory(this);
         var reversalredemption =  reversalredemptionfactory.buildDefault();
@@ -192,7 +193,7 @@ describe('Testes na Api do Banking', function() {
     });
 
     //API Release Points PUT
-    it('Deve retornar 200 para a Release Points', function() {
+    xit('Deve retornar 200 para a Release Points', function() {
     
         var banking = new BankingService(this);
         var body = {
@@ -211,7 +212,7 @@ describe('Testes na Api do Banking', function() {
         
     });
 
-    it('Deve impedir a finalização de resgate já realizado', function() {
+    xit('Deve impedir a finalização de resgate já realizado', function() {
         var banking = new BankingService(this);
 
         var creditfactory  = new Creditfactory(this);
@@ -287,7 +288,7 @@ describe('Testes na Api do Banking', function() {
     });
 
 
-    it('Deve impmedir o sistema de realizar um reversal (estorno) com valor excedido', function() {
+    xit('Deve impedir o sistema de realizar um reversal (estorno) com valor excedido', function() {
 
         var banking = new BankingService(this);   
 
@@ -322,4 +323,36 @@ describe('Testes na Api do Banking', function() {
         })
     });
 
-});
+    //Validar não autorização de pagamento
+    xit('Deve impedir que um pagamento não autorizado seja realizado', function() {
+        var banking = new BankingService(this);
+        var successfinishputredemption  = new SuccessFinishRedemptionFactory(this);
+        var successfinishredemption =  successfinishputredemption.buildDefault();
+
+        //console.log(finishredemption);
+        return banking.putsuccessfinishredemption(successfinishredemption).then(function(responsefinishredemption){
+            expect(responsefinishredemption, 'Deve retornar 400 para a chamada').to.have.status(config.util.HTTP.BAD_REQUEST);
+        }).catch(function(responseerrfinishredemption) {
+            expect(responseerrfinishredemption, 'Deve retornar 400 para a chamada').to.have.status(config.util.HTTP.BAD_REQUEST);
+            expect(responseerrfinishredemption.response.body.statusDescription, 'Deve retornar mensagem de erro').to.equal(config.FINISHREDEMPTIONSTATUSDESCRIPTION);                                       
+            console.log(responseerrfinishredemption.response.body.statusDescription);
+        });
+    });
+
+    //Validar Get Balance Live  
+    it('Deve obter Balance Live', function() {
+        var banking = new BankingService(this);       
+        return banking.getBalance(config.CAMPAIGN_ID,config.USERS[0].userid,config.VENDORID).then(function(response){
+             expect(response, 'Deve retornar 200 para a chamada').to.have.status(config.util.HTTP.OK);                          
+             expect(response.body.projectId).to.be.equal(config.CAMPAIGN_ID);             
+             console.log(response.body.projectId);
+             console.log(config.CAMPAIGN_ID);
+
+             expect(response.body.userid).to.be.equal(config.VENDORID);             
+             console.log(response.vendorid);
+             console.log(config.VENDORID);
+
+        });
+    });
+
+}); 
