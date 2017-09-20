@@ -372,7 +372,7 @@ describe('Testes na Api do Banking', function() {
     });
 
     //Validar Cancelamento de Resgate  
-    it('Deve impedir realizar o cancelamento do resgate', function() {
+    it('Deve realizar o cancelamento do resgate', function() {
         var banking = new BankingService(this);
         var cancelredemptionsfactory  = new CancelRedemptionsFactory(this);
         var redemptionscancel =  cancelredemptionsfactory.buildDefault();
