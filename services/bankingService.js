@@ -195,5 +195,20 @@ BankingService.prototype.getbalancelive = function(campaignid, userid, vendorid)
     return this.util.getUrl(baseurl, header,'/account/campaigns/'+campaignid+'/participants/'+userid+'/balance/live/'+vendorid);
 };
 
+//https://hml-banking-api.webpremios.com.br:443/v1/redemptions/AuthorizationOrderDetail/3860029
+BankingService.prototype.getAuthorizationOrderDetail = function(ORDERIDFORAUTHORIZATIONORDERDETAIL) {
+    this.util.timeout(config.util.DEFAULT_SECONDS);
+    var baseurl = this.urlService.getFullUrlPrincipalApi();
+    var header = this.util.getHeaderJson('');    
+    return this.util.getUrl(baseurl, header,'/redemptions/AuthorizationOrderDetail/'+ORDERIDFORAUTHORIZATIONORDERDETAIL);
+};
+
+//https://hml-banking-api.webpremios.com.br:443/v1/redemptions/cancel
+BankingService.prototype.putredemptionscancel = function(redemptionscancel) {
+    this.util.timeout(config.util.DEFAULT_SECONDS);
+    var baseurl = this.urlService.getFullUrlPrincipalApi();
+    var header = this.util.getHeaderJson('');    
+    return this.util.putUrl(baseurl, redemptionscancel, header,'/redemptions/cancel');
+};
 
 module.exports = BankingService;

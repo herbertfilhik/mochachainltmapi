@@ -9,6 +9,7 @@ var PutReversalRedemptionfactory = require('../factories/PutReversalRedemptionfa
 var Creditfactory = require('../factories/Creditfactory.js');
 var RedemptionDoneFactory = require('../factories/RedemptionDoneFactory.js');
 var SuccessFinishRedemptionFactory = require('../factories/successfinishredemptionfactory.js');
+var CancelRedemptionsFactory = require('../factories/cancelredemptions.js');
 var expect = chai.expect;
 
 describe('Testes na Api do Banking', function() {
@@ -340,7 +341,7 @@ describe('Testes na Api do Banking', function() {
     });
 
     //Validar Get Balance Live  
-    it('Deve obter Balance Live', function() {
+    xit('Deve obter Balance Live', function() {
         var banking = new BankingService(this);       
         return banking.getBalance(config.CAMPAIGN_ID,config.USERS[0].userid,config.VENDORID).then(function(response){
              expect(response, 'Deve retornar 200 para a chamada').to.have.status(config.util.HTTP.OK);                          
@@ -355,4 +356,35 @@ describe('Testes na Api do Banking', function() {
         });
     });
 
+    //Validar Get AuthorizationOrderDetail  
+    xit('Deve obter AuthorizationOrderDetail', function() {
+        var banking = new BankingService(this);       
+        return banking.getAuthorizationOrderDetail(config.ORDERIDFORAUTHORIZATIONORDERDETAIL).then(function(response){
+             expect(response, 'Deve retornar 200 para a chamada').to.have.status(config.util.HTTP.OK);                    
+             console.log(response.body);
+             console.log(response.body.orderId);
+             console.log(response.body.vendorId);
+             console.log(response.body.participantAccountHolderId);
+             expect(response.body.orderId, 'Deve retornar o orderId informado na chamada').to.equal(config.ORDERIDFORAUTHORIZATIONORDERDETAIL);
+             expect(response.body.vendorId, 'Deve retornar o vendorId').to.equal(config.VENDORIDFORAUTHORIZATIONORDERDETAIL);
+             expect(response.body.participantAccountHolderId, 'Deve retornar o participantAccountHolderId').to.equal(config.PARTICIPANTACCOUNTHOLDERIDFORAUTHORIZATIONORDERDETAIL);             
+        });
+    });
+
+    //Validar Cancelamento de Resgate  
+    it('Deve impedir realizar o cancelamento do resgate', function() {
+        var banking = new BankingService(this);
+        var cancelredemptionsfactory  = new CancelRedemptionsFactory(this);
+        var redemptionscancel =  cancelredemptionsfactory.buildDefault();
+
+        //console.log(redemptionscancel);
+
+        return banking.putredemptionscancel(redemptionscancel).then(function(responseredemptionscancel){
+            //console.log(responseredemptionscancel);
+            expect(responseredemptionscancel, 'Deve retornar 200 para a chamada').to.have.status(config.util.HTTP.OK);            
+        })/*.catch(function(responseerrredemptionscancel) {
+            console.log(responseerrredemptionscancel);
+            expect(responseerrredemptionscancel, 'Deve retornar 200 para a chamada').to.have.status(config.util.HTTP.BAD_REQUEST);
+        });*/        
+    });
 }); 
