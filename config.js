@@ -106,6 +106,10 @@ config = {
         }
     ],
 
+    "CAMPAIGNIDAUTHDET": "xxx",
+    "ORDERIDAUTHDET": "xxx",
+
+
     "EXTRACTACCOUNT":[
         {
             insertDate: "2017-09-05T14:12:47.157",

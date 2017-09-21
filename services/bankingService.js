@@ -211,4 +211,30 @@ BankingService.prototype.putredemptionscancel = function(redemptionscancel) {
     return this.util.putUrl(baseurl, redemptionscancel, header,'/redemptions/cancel');
 };
 
+//https://hml-banking-api.webpremios.com.br:443/v1/redemptions/xxx/authorizationDetail/xxx
+BankingService.prototype.putauthorizationdetail = function(campaignidauthdet, orderidauthdet) {
+    this.util.timeout(config.util.DEFAULT_SECONDS);
+    var baseurl = this.urlService.getFullUrlPrincipalApi();
+    var header = this.util.getHeaderJson('');    
+    return this.util.putUrl(baseurl, '', header,'/redemptions/'+campaignidauthdet+'/authorizationDetail/'+orderidauthdet);
+};
+
+//https://hml-banking-api.webpremios.com.br:443/v1/account/campaigns/30207/participants/14124177/balanceOrigin
+BankingService.prototype.getbalanceOrigin = function(campaignid, userid) {
+    this.util.timeout(config.util.DEFAULT_SECONDS);
+    var baseurl = this.urlService.getFullUrlPrincipalApi();
+    var header = this.util.getHeaderJson('');    
+    return this.util.getUrl(baseurl, header,'/account/campaigns/'+campaignid+'/participants/'+userid+'/balanceOrigin');
+};
+
+
+//https://hml-banking-api.webpremios.com.br:443/v1/account/campaigns/30207/participants/14124177/balanceOnHold
+BankingService.prototype.getbalanceOnHold = function(campaignid, userid) {
+    this.util.timeout(config.util.DEFAULT_SECONDS);
+    var baseurl = this.urlService.getFullUrlPrincipalApi();
+    var header = this.util.getHeaderJson('');    
+    return this.util.getUrl(baseurl, header,'/account/campaigns/'+campaignid+'/participants/'+userid+'/balanceOnHold');
+};
+
+
 module.exports = BankingService;

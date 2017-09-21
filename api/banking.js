@@ -372,7 +372,7 @@ describe('Testes na Api do Banking', function() {
     });
 
     //Validar Cancelamento de Resgate  
-    it('Deve realizar o cancelamento do resgate', function() {
+    xit('Deve realizar o cancelamento do resgate', function() {
         var banking = new BankingService(this);
         var cancelredemptionsfactory  = new CancelRedemptionsFactory(this);
         var redemptionscancel =  cancelredemptionsfactory.buildDefault();
@@ -382,9 +382,40 @@ describe('Testes na Api do Banking', function() {
         return banking.putredemptionscancel(redemptionscancel).then(function(responseredemptionscancel){
             //console.log(responseredemptionscancel);
             expect(responseredemptionscancel, 'Deve retornar 200 para a chamada').to.have.status(config.util.HTTP.OK);            
-        })/*.catch(function(responseerrredemptionscancel) {
-            console.log(responseerrredemptionscancel);
-            expect(responseerrredemptionscancel, 'Deve retornar 200 para a chamada').to.have.status(config.util.HTTP.BAD_REQUEST);
-        });*/        
+        })        
+    });
+
+    //Validar authorizationDetail  
+    xit('Deve ser possível visualizar authorizationDetail', function() {
+        var banking = new BankingService(this);
+
+        return banking.putauthorizationdetail(config.CAMPAIGNIDAUTHDET, config.ORDERIDAUTHDET).then(function(responseauthorizationdetail){
+            //console.log(responseauthorizationdetail);
+            expect(responseauthorizationdetail, '', 'Deve retornar 400 para a chamada').to.have.status(config.util.HTTP.BAD_REQUEST);            
+        }).catch(function(responseerrauthorizationdetail) {
+            expect(responseerrauthorizationdetail, 'Deve retornar 400 para a chamada').to.have.status(config.util.HTTP.BAD_REQUEST);
+            //console.log(responseerrauthorizationdetail.response.body.statusDescription);
+        });        
+    });
+
+    //Validar Get balanceOrigin  
+    xit('Deve obter balanceOrigin', function() {
+        var banking = new BankingService(this);       
+        return banking.getbalanceOrigin(config.CAMPAIGN_ID,config.USERS[0].userid).then(function(responsebalanceorigin){
+             expect(responsebalanceorigin, 'Deve retornar 200 para a chamada').to.have.status(config.util.HTTP.OK);                          
+             expect(responsebalanceorigin.body.projectId).to.be.equal(config.CAMPAIGN_ID);             
+             //console.log(response.body.projectId);
+             //console.log(config.CAMPAIGN_ID);
+             //console.log(response.vendorid);
+             //console.log(config.VENDORID);
+        });
+    });
+
+    //Validar Get balanceOnHold  
+    it('Deve obter balanceOnHold', function() {
+        var banking = new BankingService(this);       
+        return banking.getbalanceOnHold(config.CAMPAIGN_ID,config.USERS[0].userid).then(function(responsebalanceOnHold){
+             expect(responsebalanceOnHold, 'Deve retornar 200 para a chamada').to.have.status(config.util.HTTP.OK);                          
+        });
     });
 }); 
