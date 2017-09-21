@@ -236,5 +236,22 @@ BankingService.prototype.getbalanceOnHold = function(campaignid, userid) {
     return this.util.getUrl(baseurl, header,'/account/campaigns/'+campaignid+'/participants/'+userid+'/balanceOnHold');
 };
 
+//https://hml-banking-api.webpremios.com.br:443/v1/account/campaigns/30207/participants/transfer
+BankingService.prototype.posttransfer = function(transfer, campaignid) {
+    this.util.timeout(config.util.DEFAULT_SECONDS);
+    var baseurl = this.urlService.getFullUrlPrincipalApi();
+    var header = this.util.getHeaderJson('');    
+    return this.util.postUrl(baseurl, transfer, header,'/account/campaigns/'+campaignid+'/participants/transfer');
+};
+
+//https://hml-banking-api.webpremios.com.br:443/v1/account/campaigns/30207/participants/transferOnline
+BankingService.prototype.posttransferonline = function(transferonline, campaignid) {
+    this.util.timeout(config.util.DEFAULT_SECONDS);
+    var baseurl = this.urlService.getFullUrlPrincipalApi();
+    var header = this.util.getHeaderJson('');    
+    return this.util.postUrl(baseurl, transferonline, header,'/account/campaigns/'+campaignid+'/participants/transferOnline');
+};
+
+
 
 module.exports = BankingService;

@@ -10,6 +10,8 @@ var Creditfactory = require('../factories/Creditfactory.js');
 var RedemptionDoneFactory = require('../factories/RedemptionDoneFactory.js');
 var SuccessFinishRedemptionFactory = require('../factories/successfinishredemptionfactory.js');
 var CancelRedemptionsFactory = require('../factories/cancelredemptions.js');
+var TransferFactory = require('../factories/transferfactory.js');
+var TransferOnlineFactory = require('../factories/transferonlinefactory.js');
 var expect = chai.expect;
 
 describe('Testes na Api do Banking', function() {
@@ -418,4 +420,31 @@ describe('Testes na Api do Banking', function() {
              expect(responsebalanceOnHold, 'Deve retornar 200 para a chamada').to.have.status(config.util.HTTP.OK);                          
         });
     });
+
+    //Validar transfer  
+    it('Deve impedir realização de transfer com dados inválidos', function() {
+        var banking = new BankingService(this);
+        var transferfactory  = new TransferFactory(this);
+        var transfer =  transferfactory.buildDefault();
+        
+        return banking.posttransfer(transfer).then(function(responsetransfer){
+            expect(responsetransfer, 'Deve retornar 404').to.have.status(config.util.HTTP.NOT_FOUND);                                       
+        }).catch(function(responseerrtransfer) {
+            expect(responseerrtransfer, 'Deve retornar 404').to.have.status(config.util.HTTP.NOT_FOUND);
+        });
+    });
+
+    //Validar transferonline  
+    it('Deve impedir realização de transferonline com dados inválidos', function() {
+        var banking = new BankingService(this);
+        var transferonlinefactory  = new TransferOnlineFactory(this);
+        var transferonline =  transferonlinefactory.buildDefault();
+        
+        return banking.posttransferonline(transferonline).then(function(responsetransferonline){
+            expect(responsetransferonline, 'Deve retornar 404').to.have.status(config.util.HTTP.NOT_FOUND);                                       
+        }).catch(function(responseerrtransferonline) {
+            expect(responseerrtransferonline, 'Deve retornar 404').to.have.status(config.util.HTTP.NOT_FOUND);
+        });
+    });    
+
 }); 
