@@ -268,4 +268,12 @@ BankingService.prototype.postflush = function(flush) {
     return this.util.postUrl(baseurl, '', header,'/configurations/flush/'+flush);
 };
 
+//https://hml-banking-api.webpremios.com.br:443/v1/redemptions/statusTransaction/123/123/123
+BankingService.prototype.getstatusTransaction = function(campaignid, token, externalCode) {
+    this.util.timeout(config.util.DEFAULT_SECONDS);
+    var baseurl = this.urlService.getFullUrlPrincipalApi();
+    var header = this.util.getHeaderJson('');    
+    return this.util.getUrl(baseurl, header,'/redemptions/statusTransaction/'+campaignid+'/'+token+'/'+externalCode);
+};
+
 module.exports = BankingService;

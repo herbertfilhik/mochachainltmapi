@@ -460,13 +460,25 @@ describe('Testes na Api do Banking', function() {
     });    
 
     //Validar flush (limpa cache)  
-    it('Deve realizar flush com successo', function() {
+    xit('Deve realizar flush com successo', function() {
         var banking = new BankingService(this);
 
         return banking.postflush(config.FLUSH).then(function(responseFlush){
             //console.log(responseFlush);
             expect(responseFlush, 'Deve retornar 200 para a chamada').to.have.status(config.util.HTTP.OK);            
         })
-    });        
+    });      
+    
+    //Validar status transaction  
+    it('Deve retornar mensagem de erro informando que os inputs são inválidos para (Status Transaction)', function() {
+        var banking = new BankingService(this);
+
+        return banking.getstatusTransaction(config.CAMPAIGNID, config.TOKEN, config.EXTERNALCODE).then(function(responsestatusTransaction){
+            console.log(responsestatusTransaction);
+            expect(responsestatusTransaction, 'Deve retornar 404 para a chamada').to.have.status(config.util.HTTP.NOT_FOUND);            
+        }).catch(function(responseerrstatusTransaction) {
+            expect(responseerrstatusTransaction, 'Deve retornar 404 para a chamada').to.have.status(config.util.HTTP.NOT_FOUND);
+        });
+    });          
 
 }); 
