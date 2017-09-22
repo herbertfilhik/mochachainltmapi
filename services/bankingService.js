@@ -276,4 +276,12 @@ BankingService.prototype.getstatusTransaction = function(campaignid, token, exte
     return this.util.getUrl(baseurl, header,'/redemptions/statusTransaction/'+campaignid+'/'+token+'/'+externalCode);
 };
 
+//https://hml-banking-api.webpremios.com.br:443/v1/campaigns/123/participants/123/balance/hybrid/123
+BankingService.prototype.getbalancehybrid = function(campaignidhybrid, participantidhybrid, hybridcampaignhybrid) {
+    this.util.timeout(config.util.DEFAULT_SECONDS);
+    var baseurl = this.urlService.getFullUrlPrincipalApi();
+    var header = this.util.getHeaderJson('');    
+    return this.util.getUrl(baseurl, header,'/campaigns/'+campaignidhybrid+'/participants/'+participantidhybrid+'/balance/hybrid/'+hybridcampaignhybrid);
+};
+
 module.exports = BankingService;
