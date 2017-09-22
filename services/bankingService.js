@@ -252,6 +252,20 @@ BankingService.prototype.posttransferonline = function(transferonline, campaigni
     return this.util.postUrl(baseurl, transferonline, header,'/account/campaigns/'+campaignid+'/participants/transferOnline');
 };
 
+//https://hml-banking-api.webpremios.com.br:443/v1/account/creditParticipantOnline
+BankingService.prototype.postcreditParticipantOnline = function(creditParticipantOnline) {
+    this.util.timeout(config.util.DEFAULT_SECONDS);
+    var baseurl = this.urlService.getFullUrlPrincipalApi();
+    var header = this.util.getHeaderJson('');    
+    return this.util.postUrl(baseurl, creditParticipantOnline, header,'/account/creditParticipantOnline');
+};
 
+//https://hml-banking-api.webpremios.com.br:443/v1/configurations/flush/2
+BankingService.prototype.postflush = function(flush) {
+    this.util.timeout(config.util.DEFAULT_SECONDS);
+    var baseurl = this.urlService.getFullUrlPrincipalApi();
+    var header = this.util.getHeaderJson('');    
+    return this.util.postUrl(baseurl, '', header,'/configurations/flush/'+flush);
+};
 
 module.exports = BankingService;
