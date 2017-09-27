@@ -56,10 +56,10 @@ describe('Testes na Api do Banking', function() {
         return banking.getBalanceLoginInvalid(config.CAMPAIGN_ID_INVALID,config.USERS_INVALID[0].username_invalid).then(function(responsebalancebylogin){
              expect(responsebalancebylogin, 'Deve retornar 404 para a chamada pois o Login é inválido').to.have.status(config.util.HTTP.NOT_FOUND);                          
              //expect(response.body.message).to.be.eq(config.MESSAGE_INVALID);
-             console.log(responsebalancebylogin.response.body);
+             //console.log(responsebalancebylogin.response.body);
              
         }).catch(function(responseerrbalancebylogin) {
-            console.log(console.log(responseerrbalancebylogin.response.body));
+            //console.log(console.log(responseerrbalancebylogin.response.body));
             expect(responseerrbalancebylogin, 'Deve retornar 404 para a chamada pois o Login é inválido').to.have.status(config.util.HTTP.NOT_FOUND);
         });
      });
@@ -184,7 +184,7 @@ describe('Testes na Api do Banking', function() {
         var reversalredemptionfactory  = new ReversalRedemptionfactory(this);
         var reversalredemption =  reversalredemptionfactory.buildDefault();
 
-        console.log(reversalredemption);
+        //console.log(reversalredemption);
 
         return banking.reversalredemption(reversalredemption).then(function(responsereversalredemption){
             expect(responsereversalredemption, 'Deve retornar 400 para a chamada').to.have.status(config.util.HTTP.BAD_REQUEST);                                       
@@ -192,7 +192,7 @@ describe('Testes na Api do Banking', function() {
             expect(responseerrreversalredemption, 'Deve retornar 400 para a Reversal Redemption').to.have.status(config.util.HTTP.BAD_REQUEST);
         });
 
-    console.log(reversalredemption);
+    //console.log(reversalredemption);
 
     });
 
@@ -205,7 +205,7 @@ describe('Testes na Api do Banking', function() {
             orderId:3629883
         }
         return banking.releasepoints(body,config.CAMPAIGN_ID,config.USERS[0].userid).then(function(response){
-            console.log(config.util.OK);
+            //console.log(config.util.OK);
             expect(response, 'Deve retornar 200 na chamada').to.have.status(config.util.HTTP.OK);                                       
         })
         
@@ -316,8 +316,8 @@ describe('Testes na Api do Banking', function() {
                  expect(responseputredemptionreversal, 'Deve retornar 200 para a chamada').to.have.status(config.util.HTTP.OK);
                  //console.log(responseputredemptionreversal.body);
                  expect(responseputredemptionreversal.body.authorizationCode, 'Deve ser o mesmo authorizationCode entre GET e PUT').to.equal(config.REDEMPTIONFORREVERSAL[0].authorizationCode);
-                 console.log(responseputredemptionreversal.body)
-                 console.log(responseputredemptionreversal.body.statusDescription);
+                 //console.log(responseputredemptionreversal.body)
+                 //console.log(responseputredemptionreversal.body.statusDescription);
                  expect(responseputredemptionreversal.body.statusDescription, 'Deve retornar o status Error xxx').to.equal(config.PUTFORREVERSALREDEMPTION[0].statusDescription);   
                  expect(responseputredemptionreversal.body.orders[0].orderId, 'Deve retornar o orderId').to.equal(config.PUTFORREVERSALREDEMPTION[0].orderId);   
                  //console.log(responseputredemptionreversal.body.authorizationCode);
@@ -339,7 +339,7 @@ describe('Testes na Api do Banking', function() {
         }).catch(function(responseerrfinishredemption) {
             expect(responseerrfinishredemption, 'Deve retornar 400 para a chamada').to.have.status(config.util.HTTP.BAD_REQUEST);
             expect(responseerrfinishredemption.response.body.statusDescription, 'Deve retornar mensagem de erro').to.equal(config.FINISHREDEMPTIONSTATUSDESCRIPTION);                                       
-            console.log(responseerrfinishredemption.response.body.statusDescription);
+            //console.log(responseerrfinishredemption.response.body.statusDescription);
         });
     });
 
@@ -349,12 +349,12 @@ describe('Testes na Api do Banking', function() {
         return banking.getBalance(config.CAMPAIGN_ID,config.USERS[0].userid,config.VENDORID).then(function(response){
              expect(response, 'Deve retornar 200 para a chamada').to.have.status(config.util.HTTP.OK);                          
              expect(response.body.projectId).to.be.equal(config.CAMPAIGN_ID);             
-             console.log(response.body.projectId);
-             console.log(config.CAMPAIGN_ID);
+             //console.log(response.body.projectId);
+             //console.log(config.CAMPAIGN_ID);
 
              expect(response.body.userid).to.be.equal(config.VENDORID);             
-             console.log(response.vendorid);
-             console.log(config.VENDORID);
+             //console.log(response.vendorid);
+             //console.log(config.VENDORID);
 
         });
     });
@@ -364,10 +364,10 @@ describe('Testes na Api do Banking', function() {
         var banking = new BankingService(this);       
         return banking.getAuthorizationOrderDetail(config.ORDERIDFORAUTHORIZATIONORDERDETAIL).then(function(response){
              expect(response, 'Deve retornar 200 para a chamada').to.have.status(config.util.HTTP.OK);                    
-             console.log(response.body);
-             console.log(response.body.orderId);
-             console.log(response.body.vendorId);
-             console.log(response.body.participantAccountHolderId);
+             //console.log(response.body);
+             //console.log(response.body.orderId);
+             //console.log(response.body.vendorId);
+             //console.log(response.body.participantAccountHolderId);
              //expect(response.body.orderId, 'Deve retornar o orderId informado na chamada').to.equal(config.ORDERIDFORAUTHORIZATIONORDERDETAIL);
              //expect(response.body.vendorId, 'Deve retornar o vendorId').to.equal(config.VENDORIDFORAUTHORIZATIONORDERDETAIL);
              //expect(response.body.participantAccountHolderId, 'Deve retornar o participantAccountHolderId').to.equal(config.PARTICIPANTACCOUNTHOLDERIDFORAUTHORIZATIONORDERDETAIL);             
@@ -474,7 +474,7 @@ describe('Testes na Api do Banking', function() {
         var banking = new BankingService(this);
 
         return banking.getstatusTransaction(config.CAMPAIGNID, config.TOKEN, config.EXTERNALCODE).then(function(responsestatusTransaction){
-            console.log(responsestatusTransaction);
+            //console.log(responsestatusTransaction);
             expect(responsestatusTransaction, 'Deve retornar 404 para a chamada').to.have.status(config.util.HTTP.NOT_FOUND);            
         }).catch(function(responseerrstatusTransaction) {
             expect(responseerrstatusTransaction, 'Deve retornar 404 para a chamada').to.have.status(config.util.HTTP.NOT_FOUND);
