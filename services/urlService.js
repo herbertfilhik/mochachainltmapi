@@ -1,5 +1,5 @@
 'use strict';
-var Util = require('../util.js');
+//var Util = require('../util.js');
 
 var UrlService = function(that) {
     this.util = new Util(that);
@@ -10,4 +10,4 @@ UrlService.prototype.getFullUrlPrincipalApi = function() {
     return this.urls.urlBanking;
 };
 
-module.exports = UrlService;
+//module.exports = UrlService;

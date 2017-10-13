@@ -1,6 +1,6 @@
 'use strict';
 
-var chai = require('chai')
+/*var chai = require('chai')
 var BankingService = require('../services/bankingService.js');
 var Redemptionsfactory = require('../factories/Redemptionsfactory.js');
 var FinishRedemptionfactory = require('../factories/FinishRedemptionfactory.js');
@@ -14,7 +14,7 @@ var TransferFactory = require('../factories/transferfactory.js');
 var TransferOnlineFactory = require('../factories/transferonlinefactory.js');
 var creditParticipantOnlineFactory = require('../factories/creditParticipantOnlinefactory.js');
 var expect = chai.expect;
-
+*/
 describe('Testes na Api do Banking', function() {
 
     before('setup', function() {

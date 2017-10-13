@@ -2,7 +2,7 @@
 var basic;
 var env;
 
-var chai = require('chai')  , chaiHttp = require('chai-http');
+//var chai = require('chai')  , chaiHttp = require('chai-http');
 
 
 
@@ -101,4 +101,4 @@ function getParameterByName(name, url) {
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
-module.exports = Util;
+//module.exports = Util;

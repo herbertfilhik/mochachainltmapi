@@ -336,4 +336,4 @@ RedemptionDonefactory.prototype.buildDefault = function(){
 
     return redemptiondone;
 };
-module.exports = RedemptionDonefactory;
+//module.exports = RedemptionDonefactory;

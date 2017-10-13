@@ -1,7 +1,7 @@
 'use strict';
-var Util = require('../util.js');
-var UrlService = require('./urlService.js');
-var config = require('../config.js');
+//var Util = require('../util.js');
+//var UrlService = require('./urlService.js');
+//var config = require('../config.js');
 
 var BankingService = function(that) {
     this.util = new Util(that);
@@ -284,4 +284,4 @@ BankingService.prototype.getbalancehybrid = function(campaignidhybrid, participa
     return this.util.getUrl(baseurl, header,'/campaigns/'+campaignidhybrid+'/participants/'+participantidhybrid+'/balance/hybrid/'+hybridcampaignhybrid);
 };
 
-module.exports = BankingService;
+//module.exports = BankingService;

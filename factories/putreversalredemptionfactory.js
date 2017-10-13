@@ -55,4 +55,4 @@ PutReversalRedemptionfactory.prototype.buildDefault = function(){
     return putreversalredemption;
 };
             
-module.exports = PutReversalRedemptionfactory;
+//module.exports = PutReversalRedemptionfactory;

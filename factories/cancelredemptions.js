@@ -57,4 +57,4 @@ CancelRedemptionsFactory.prototype.buildDefault = function(){
     return redemptionscancel;
 };
             
-module.exports = CancelRedemptionsFactory;
+//module.exports = CancelRedemptionsFactory;
