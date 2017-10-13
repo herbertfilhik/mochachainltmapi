@@ -142,4 +142,4 @@ SuccessFinishRedemptionFactory.prototype.buildDefault = function(){
     return successfinishredemption;
 };
             
-//module.exports = SuccessFinishRedemptionFactory;
+module.exports = SuccessFinishRedemptionFactory;

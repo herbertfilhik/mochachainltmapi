@@ -36,4 +36,4 @@ Creditfactory.prototype.buildDefault = function(){
     return credit;
 };
             
-//module.exports = Creditfactory;
+module.exports = Creditfactory;

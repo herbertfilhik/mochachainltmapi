@@ -32,4 +32,4 @@ ReversalRedemptionfactory.prototype.buildDefault = function(){
     return reversalredemption;
 };
             
-//module.exports = ReversalRedemptionfactory;
+module.exports = ReversalRedemptionfactory;

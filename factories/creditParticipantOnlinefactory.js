@@ -48,4 +48,4 @@ creditParticipantOnlineFactory.prototype.buildDefault = function(){
 
     return creditParticipantOnline;
 };
-//module.exports = creditParticipantOnlineFactory;
+module.exports = creditParticipantOnlineFactory;

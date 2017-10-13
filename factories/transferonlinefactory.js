@@ -74,4 +74,4 @@ TransferFactoryOnline.prototype.buildDefault = function(){
 
     return transferonline;
 };
-//module.exports = TransferFactoryOnline;
+module.exports = TransferFactoryOnline;
